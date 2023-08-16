@@ -9,9 +9,14 @@ import UIKit
 
 class LandingPageViewController: UIViewController {
     
+    let customBackgroundView = BackgroundView().customBackgroundWithShape
+    let landingPageViews = LandingPageViews()
+    
+    let viewModel = LandingPageViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configuration()
     }
     
 }
