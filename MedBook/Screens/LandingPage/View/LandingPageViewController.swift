@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LandingPageViewController.swift
 //  MedBook
 //
 //  Created by Gokul on 16/08/23.
@@ -7,13 +7,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class LandingPageViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
-
-
+    
 }
-
