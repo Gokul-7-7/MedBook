@@ -11,24 +11,16 @@ extension LandingPageViewController {
     
     func configuration() {
         setupUI()
-        setupConstraints()
-        //setupNavigationBar()
         setupButtonActions()
+        setupConstraints()
     }
     
     func setupUI() {
         view = customBackgroundView
-        title = Constant.NavigationTitle.landingPageTitle
+        title = NavigationTitle.medBookTitle
         navigationController?.navigationBar.prefersLargeTitles = true
         setupConstraints()
     }
-    
-//    func setupNavigationBar() {
-//        let customFont = UIFont(name: "Degular-Bold", size: 32) // Change to your custom font name and size
-//        let textAttributes = [NSAttributedString.Key.font: customFont]
-//
-//        navigationController?.navigationBar.titleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
-//    }
     
     func setupConstraints() {
         setupImageConstraints()
@@ -55,7 +47,7 @@ extension LandingPageViewController {
         landingPageViews.buttonStackView.addArrangedSubview(landingPageViews.signupButton)
         landingPageViews.buttonStackView.addArrangedSubview(landingPageViews.loginButton)
        
-        landingPageViews.buttonStackView.anchor(top: nil, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingTop: 0, paddingLeft: 28, paddingBottom: 24, paddingRight: 28, width: nil, height: 60, enableInsets: false)
+        landingPageViews.buttonStackView.anchor(top: landingPageViews.landingImageView.bottomAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingTop: 200, paddingLeft: 28, paddingBottom: 24, paddingRight: 28, width: nil, height: 60, enableInsets: false)
         landingPageViews.buttonStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     

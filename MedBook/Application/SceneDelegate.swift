@@ -12,9 +12,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: windowScene)
-        let navigationController = UINavigationController(rootViewController: LandingPageViewController())
+        
+        var rootViewController: UIViewController = LandingPageViewController()
+        
+        if let _ = AuthTokenManager.getAuthToken() {
+            // User is logged in, show main content
+            rootViewController = HomePageViewController()
+        }
+        let navigationController = UINavigationController(rootViewController: rootViewController)
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = navigationController

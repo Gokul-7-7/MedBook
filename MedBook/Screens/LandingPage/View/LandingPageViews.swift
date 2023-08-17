@@ -11,15 +11,16 @@ class LandingPageViews {
     
     lazy var landingImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: Constant.Images.landingImage)
+        imageView.image = UIImage(named: Images.landingImage)
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     lazy var signupButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Signup", for: .normal)
-        button.titleLabel?.font = UIFont(name: Constant.Font.degularBold, size: 22)
-        button.backgroundColor = Constant.Colors.buttonBackground
+        button.titleLabel?.font = UIFont(name: Font.degularBold, size: 22)
+        button.backgroundColor = Colors.buttonBackground
         button.setTitleColor(.black, for: .normal)
         button.layer.cornerRadius = 12
         button.layer.borderWidth = 1.5
@@ -32,8 +33,8 @@ class LandingPageViews {
         let button = UIButton(type: .system)
         button.setTitle("Login", for: .normal)
         button.setTitleColor(.black, for: .normal)
-        button.titleLabel?.font = UIFont(name: Constant.Font.degularBold, size: 22)
-        button.backgroundColor = Constant.Colors.buttonBackground
+        button.titleLabel?.font = UIFont(name: Font.degularBold, size: 22)
+        button.backgroundColor = Colors.buttonBackground
         button.layer.cornerRadius = 12
         button.layer.borderWidth = 1.5
         button.layer.borderColor = UIColor.black.cgColor

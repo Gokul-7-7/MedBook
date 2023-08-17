@@ -15,11 +15,15 @@ extension LandingPageViewController {
     }
     
     @objc func loginButtonTapped() {
-        print("Login button pressed")
+        let coreDataManager = CoreDataManager()
+        let loginPageVC = LoginPageViewController(viewModel: LoginViewModelImpl(coreDataManager: coreDataManager))
+        self.navigationController?.pushViewController(loginPageVC, animated: true)
     }
     
     @objc func signupButtonTapped() {
-        print("Sign up button pressed")
+        let viewModel = SignupPageViewModelImpl()
+        let signupPageVC = SignupPageViewController(viewModel: viewModel)
+        self.navigationController?.pushViewController(signupPageVC, animated: true)
     }
     
 }
