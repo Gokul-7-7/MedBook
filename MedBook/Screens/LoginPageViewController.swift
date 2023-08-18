@@ -20,6 +20,7 @@ class LoginPageViewController: UIViewController {
     
     var viewModel: LoginPageViewModelProtocol
     
+    // MARK: - Initialiser
     init(viewModel: LoginPageViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -29,25 +30,16 @@ class LoginPageViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = LoginViewModelImpl(coreDataManager: coreDataManager)
         setupUI()
     }
     
+    // MARK: - Button actions
     @objc func backButtonTapped() {
         navigationController?.popViewController(animated: true)
-    }
-    
-    func saveAuthToken() {
-        let authToken = AuthTokenManager.generateRandomToken()
-        
-        // Save the auth token securely in the Keychain
-        if AuthTokenManager.saveAuthToken(authToken) {
-            print("Auth token saved successfully")
-        } else {
-            print("Failed to save auth token")
-        }
     }
     
     @objc func loginButtonPressed() {
@@ -55,10 +47,10 @@ class LoginPageViewController: UIViewController {
             self.showToast(message: "Enter username and password")
             return
         }
-        saveAuthToken()
         viewModel.login(email: email, password: password) { loginStatus in
             switch loginStatus {
             case .success:
+                self.viewModel.saveAuthToken()
                 let homePageVC = HomePageViewController()
                 self.navigationController?.pushViewController(homePageVC, animated: true)
             case .passwordMismatch:

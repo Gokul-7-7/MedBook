@@ -10,15 +10,13 @@ import CryptoKit
 
 class SignupPageViewController: UIViewController {
     
-    
     let customBackgroundView = BackgroundView().customBackgroundWithShape
     let signupPageViews = SignupPageViews()
-    let charCountCheckBoxView = CheckboxStackView(labelText: "Char count")
-    let uppercaseCheckBoxView = CheckboxStackView(labelText: "Uppercase")
-    let specialCharCheckBoxView = CheckboxStackView(labelText: "special char")
-    let coreDataManager = CoreDataManager()
-
+    lazy var charCountCheckBoxView = CheckboxStackView(labelText: "Char count")
+    lazy var uppercaseCheckBoxView = CheckboxStackView(labelText: "Uppercase")
+    lazy var specialCharCheckBoxView = CheckboxStackView(labelText: "special char")
     
+    let coreDataManager = CoreDataManager()
     let viewModel: SignupPageViewModelProtocol
     
     var selectedCountry: String?
@@ -27,7 +25,7 @@ class SignupPageViewController: UIViewController {
     var email: String?
     var password: String?
     
-    
+    // MARK: - Initialiser
     init(viewModel: SignupPageViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -37,12 +35,13 @@ class SignupPageViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         configuration()
-        
     }
     
+    // MARK: - Button actions
     @objc func backButtonTapped() {
         navigationController?.popViewController(animated: true)
     }
@@ -54,12 +53,28 @@ class SignupPageViewController: UIViewController {
         }
         coreDataManager.saveUser(email: username, password: password) { userSaved in
             if userSaved {
+                self.saveAuthToken()
                 self.showToast(message: "Signup successful")
-                self.navigationController?.popViewController(animated: true)
             } else {
                 self.showToast(message: "Signup failed, try again!")
             }
         }
     }
-}
     
+    // MARK: - Save authentication token method
+    private func saveAuthToken() {
+        let authToken = AuthTokenManager.generateRandomToken()
+        
+        // Save the auth token securely in the Keychain
+        if AuthTokenManager.saveAuthToken(authToken) {
+            let homePageVC = HomePageViewController()
+            self.navigationController?.pushViewController(homePageVC, animated: true)
+            print("Auth token saved successfully after signup")
+        } else {
+            self.navigationController?.popViewController(animated: true)
+            self.showToast(message: "Error! Try logging in")
+            print("Failed to save auth token after signup")
+        }
+    }
+}
+

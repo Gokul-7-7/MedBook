@@ -31,11 +31,14 @@ class HomePageViewController: UIViewController {
         return button
     }()
     
+    // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = Colors.backgroundColorWhite
         setupUI()
     }
     
+    // MARK: - Logout button action
     @objc func logoutButtonTapped() {
         if AuthTokenManager.removeAuthToken() {
             print("Auth token removed successfully")
@@ -46,11 +49,10 @@ class HomePageViewController: UIViewController {
         }
     }
     
+    // MARK: - Methods
     func replaceRootViewController() {
         // Create a new instance of the view controller you want to set as root
         let newRootViewController: UIViewController = UINavigationController(rootViewController: LandingPageViewController())
-        // Replace with your actual view controller class
-        
         // Access the SceneDelegate
         if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
             // Replace the root view controller of the scene's window
@@ -58,5 +60,6 @@ class HomePageViewController: UIViewController {
                 window.rootViewController = newRootViewController
             }
         }
+        self.showToast(message: "Logged Out Successfully")
     }
 }

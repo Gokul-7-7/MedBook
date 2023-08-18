@@ -56,18 +56,18 @@ class CoreDataManager {
     
     func login(email: String, password: String, completion: @escaping (LoginStatus) -> Void) {
         let context = persistentContainer.viewContext
-
+        
         // Fetch the user with the provided username
         let fetchRequest: NSFetchRequest<NSManagedObject> = NSFetchRequest(entityName: "User")
         fetchRequest.predicate = NSPredicate(format: "username = %@", email)
-
+        
         do {
             if let fetchedUser = try context.fetch(fetchRequest).first {
                 // Hash the entered password using SHA256
                 if let passwordData = password.data(using: .utf8) {
                     let hashed = SHA256.hash(data: passwordData)
                     let hashedPasswordData = Data(hashed)
-
+                    
                     // Retrieve hashed password from fetched user (assuming 'hashedPassword' is the attribute name)
                     if let userHashedPassword = fetchedUser.value(forKey: "hashedPassword") as? Data {
                         // Compare hashed passwords
@@ -90,5 +90,5 @@ class CoreDataManager {
             completion(.error(error.localizedDescription)) // Error fetching user
         }
     }
-
+    
 }

@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         var rootViewController: UIViewController = LandingPageViewController()
         
         if let _ = AuthTokenManager.getAuthToken() {
-            // User is logged in, show main content
+            //If user is logged in, show homepage
             rootViewController = HomePageViewController()
         }
         let navigationController = UINavigationController(rootViewController: rootViewController)

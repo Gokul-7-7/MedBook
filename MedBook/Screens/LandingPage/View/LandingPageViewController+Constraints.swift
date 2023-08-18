@@ -16,7 +16,7 @@ extension LandingPageViewController {
     }
     
     func setupUI() {
-        view = customBackgroundView
+        view = BackgroundView().customBackgroundWithShape
         title = NavigationTitle.medBookTitle
         navigationController?.navigationBar.prefersLargeTitles = true
         setupConstraints()
@@ -43,10 +43,9 @@ extension LandingPageViewController {
     func setupStackViewConstraints() {
         view.addSubview(landingPageViews.buttonStackView)
         
-        // Add buttons to the stack view
         landingPageViews.buttonStackView.addArrangedSubview(landingPageViews.signupButton)
         landingPageViews.buttonStackView.addArrangedSubview(landingPageViews.loginButton)
-       
+        
         landingPageViews.buttonStackView.anchor(top: landingPageViews.landingImageView.bottomAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingTop: 200, paddingLeft: 28, paddingBottom: 24, paddingRight: 28, width: nil, height: 60, enableInsets: false)
         landingPageViews.buttonStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }

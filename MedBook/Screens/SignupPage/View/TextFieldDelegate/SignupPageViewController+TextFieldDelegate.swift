@@ -56,7 +56,6 @@ extension SignupPageViewController: UITextFieldDelegate {
     }
     
     // MARK: - Email and password validation helper methods
-    
     func handlePasswordUIValidation(_ text: String?) {
         if viewModel.validateCharacterCount() {
             charCountCheckBoxView.isChecked = true

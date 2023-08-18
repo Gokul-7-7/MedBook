@@ -13,7 +13,7 @@ enum DataError: Error {
     case invalidURL
     case network(Error?)
 }
-  
+
 typealias Handler = (Result<ApiResponse, DataError>) -> ()
 
 class ApiManager {

@@ -11,13 +11,8 @@ extension HomePageViewController {
     
     func setupUI() {
         setupNavigation()
-        view.backgroundColor = Colors.backgroundColorWhite
+        view.backgroundColor = .white
         setupConstraints()
-    }
-    
-    func setupConstraints() {
-        setupLogutButtonConstraints()
-        setupHeaderConstraints()
     }
     
     func setupNavigation() {
@@ -26,9 +21,16 @@ extension HomePageViewController {
         navigationItem.hidesBackButton = true
     }
     
+    // MARK: - Constraints setup methods
+    func setupConstraints() {
+        setupLogutButtonConstraints()
+        setupHeaderConstraints()
+    }
+    
     func setupHeaderConstraints() {
+        headerLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(headerLabel)
-        headerLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingTop: 0, paddingLeft: 24, paddingBottom: 0, paddingRight: 24, width: nil, height: nil, enableInsets: false)
+        headerLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingTop: 0, paddingLeft: 16, paddingBottom: 0, paddingRight: 16, width: nil, height: nil, enableInsets: false)
     }
     
     func setupLogutButtonConstraints() {
