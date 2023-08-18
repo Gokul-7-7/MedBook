@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ApiResponse: Codable {
+struct ApiResponse: Decodable {
     var status: String?
     var statusCode: Int?
     var version, access: String?

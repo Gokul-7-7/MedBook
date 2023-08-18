@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CheckboxStackView: UIStackView {
+final class CheckboxStackView: UIStackView {
     
     private let checkbox = UIButton(type: .custom)
     private let textLabel = UILabel()
@@ -37,7 +37,7 @@ class CheckboxStackView: UIStackView {
         checkbox.setImage(UIImage(systemName: "square")?.withRenderingMode(.alwaysTemplate).withTintColor(.black), for: .normal)
         
         // Configure text label
-        textLabel.font = UIFont(name: Font.degularSemibold, size: 18)
+        textLabel.font = UIFont(name: Assets.Font.degularSemibold, size: 18)
         textLabel.numberOfLines = 0
         textLabel.text = labelText
         

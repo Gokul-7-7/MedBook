@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignupPageViews {
+final class SignupPageViews {
     
     lazy var activityIndicator: UIActivityIndicatorView = {
         return UIActivityIndicatorView()
@@ -28,7 +28,7 @@ class SignupPageViews {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.borderStyle = .none
         textField.placeholder = "Email"
-        textField.font = UIFont(name: Font.degularMedium, size: 18)
+        textField.font = UIFont(name: Assets.Font.degularMedium, size: 18)
         textField.textColor = .black
         textField.autocapitalizationType = .none
         textField.clearButtonMode = .whileEditing
@@ -45,7 +45,7 @@ class SignupPageViews {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.borderStyle = .none
         textField.placeholder = "Password"
-        textField.font = UIFont(name: Font.degularMedium, size: 18)
+        textField.font = UIFont(name: Assets.Font.degularMedium, size: 18)
         textField.textColor = .black
         textField.isSecureTextEntry = true
         textField.textContentType = .oneTimeCode
@@ -68,8 +68,8 @@ class SignupPageViews {
         let button = UIButton(type: .system)
         button.setTitle("Let's go ", for: .normal)
         button.titleLabel?.textColor = .gray
-        button.titleLabel?.font = UIFont(name: Font.degularBold, size: 22)
-        button.backgroundColor = Colors.buttonBackground
+        button.titleLabel?.font = UIFont(name: Assets.Font.degularBold, size: 22)
+        button.backgroundColor = Assets.Colors.buttonBackground
         button.setTitleColor(.gray, for: .normal)
         button.setImage(UIImage(systemName: "arrow.right")?.withTintColor(.gray), for: .normal)
         button.semanticContentAttribute = .forceRightToLeft
@@ -86,7 +86,7 @@ class SignupPageViews {
         let stackView = UIStackView()
         let checkBoxView = UIImageView()
         let label = UILabel()
-        checkBoxView.image = UIImage(named: Images.uncheckedBox)
+        checkBoxView.image = UIImage(named: Assets.Images.uncheckedBox)
         checkBoxView.contentMode = .scaleAspectFit
         checkBoxView.heightAnchor.constraint(equalToConstant: 15).isActive = true
         checkBoxView.widthAnchor.constraint(equalToConstant: 15).isActive = true
@@ -96,7 +96,7 @@ class SignupPageViews {
         stackView.axis = .horizontal
         
         label.text = "At least 8 characters"
-        label.font = UIFont(name: Font.degularSemibold, size: 18)
+        label.font = UIFont(name: Assets.Font.degularSemibold, size: 18)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -110,7 +110,7 @@ class SignupPageViews {
         let stackView = UIStackView()
         let checkBoxView = UIImageView()
         let label = UILabel()
-        checkBoxView.image = UIImage(named: Images.uncheckedBox)
+        checkBoxView.image = UIImage(named: Assets.Images.uncheckedBox)
         checkBoxView.contentMode = .scaleAspectFit
         checkBoxView.heightAnchor.constraint(equalToConstant: 15).isActive = true
         checkBoxView.widthAnchor.constraint(equalToConstant: 15).isActive = true
@@ -120,7 +120,7 @@ class SignupPageViews {
         stackView.axis = .horizontal
         
         label.text = "Must contain an uppercase letter"
-        label.font = UIFont(name: Font.degularSemibold, size: 18)
+        label.font = UIFont(name: Assets.Font.degularSemibold, size: 18)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -134,7 +134,7 @@ class SignupPageViews {
         let stackView = UIStackView()
         let checkBoxView = UIImageView()
         let label = UILabel()
-        checkBoxView.image = UIImage(named: Images.uncheckedBox)
+        checkBoxView.image = UIImage(named: Assets.Images.uncheckedBox)
         checkBoxView.contentMode = .scaleAspectFit
         checkBoxView.heightAnchor.constraint(equalToConstant: 15).isActive = true
         checkBoxView.widthAnchor.constraint(equalToConstant: 15).isActive = true
@@ -144,7 +144,7 @@ class SignupPageViews {
         stackView.axis = .horizontal
         
         label.text = "Contains a special character"
-        label.font = UIFont(name: Font.degularSemibold, size: 18)
+        label.font = UIFont(name: Assets.Font.degularSemibold, size: 18)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         

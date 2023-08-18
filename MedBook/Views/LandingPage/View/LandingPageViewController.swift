@@ -1,13 +1,23 @@
 //
-//  LandingPageViewController+Constraints.swift
+//  LandingPageViewController.swift
 //  MedBook
 //
-//  Created by Gokul on 17/08/23.
+//  Created by Gokul on 16/08/23.
 //
 
 import UIKit
 
-extension LandingPageViewController {
+final class LandingPageViewController: UIViewController {
+    
+    let landingPageViews = LandingPageViews()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configuration()
+    }
+}
+
+private extension LandingPageViewController {
     
     func configuration() {
         setupUI()
@@ -17,7 +27,7 @@ extension LandingPageViewController {
     
     func setupUI() {
         view = BackgroundView().customBackgroundWithShape
-        title = NavigationTitle.medBookTitle
+        title = Copies.NavigationTitle.medBookTitle
         navigationController?.navigationBar.prefersLargeTitles = true
         setupConstraints()
     }
@@ -49,5 +59,24 @@ extension LandingPageViewController {
         landingPageViews.buttonStackView.anchor(top: landingPageViews.landingImageView.bottomAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingTop: 200, paddingLeft: 28, paddingBottom: 24, paddingRight: 28, width: nil, height: 60, enableInsets: false)
         landingPageViews.buttonStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
+}
+
+private extension LandingPageViewController {
     
+    func setupButtonActions() {
+        landingPageViews.loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        landingPageViews.signupButton.addTarget(self, action: #selector(signupButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func loginButtonTapped() {
+        let coreDataManager = CoreDataManager()
+        let loginPageVC = LoginPageViewController()
+        self.navigationController?.pushViewController(loginPageVC, animated: true)
+    }
+    
+    @objc func signupButtonTapped() {
+        let viewModel = SignupPageViewModelImpl()
+        let signupPageVC = SignupPageViewController(viewModel: viewModel)
+        self.navigationController?.pushViewController(signupPageVC, animated: true)
+    }
 }

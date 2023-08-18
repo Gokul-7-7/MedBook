@@ -13,7 +13,7 @@ extension UIViewController {
         let toastLabel = UILabel()
         toastLabel.textColor = UIColor.white
         toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        toastLabel.font = UIFont(name: Font.degularSemibold, size: 18)
+        toastLabel.font = UIFont(name: Assets.Font.degularSemibold, size: 18)
         toastLabel.textAlignment = .center
         toastLabel.text = message
         toastLabel.alpha = 1.0

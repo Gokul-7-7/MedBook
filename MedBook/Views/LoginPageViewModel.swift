@@ -13,17 +13,17 @@ protocol LoginPageViewModelProtocol: AnyObject {
     func updateEmail(_ text: String)
     func updatePassword(_ text: String)
     typealias StatusHandler = (LoginStatus) -> Void
-    func saveAuthToken()
+    func saveAuthToken(completion: @escaping StatusHandler)
     func login(email: String, password: String, completion: @escaping StatusHandler)
 }
 
-class LoginViewModelImpl: LoginPageViewModelProtocol {    
+final class LoginViewModelImpl: LoginPageViewModelProtocol {    
     
     private let coreDataManager: CoreDataManager
     var email: String?
     var password: String?
     
-    init(coreDataManager: CoreDataManager) {
+    init(coreDataManager: CoreDataManager = CoreDataManager()) {
         self.coreDataManager = coreDataManager
     }
     
@@ -35,13 +35,15 @@ class LoginViewModelImpl: LoginPageViewModelProtocol {
         password = text
     }
     
-    func saveAuthToken() {
+    func saveAuthToken(completion: @escaping StatusHandler) {
         let authToken = AuthTokenManager.generateRandomToken()
         // Save the auth token securely in the Keychain
         if AuthTokenManager.saveAuthToken(authToken) {
             print("Auth token saved successfully")
+            completion(.success)
         } else {
             print("Failed to save auth token")
+            completion(.error(""))
         }
     }
     

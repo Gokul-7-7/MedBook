@@ -16,14 +16,14 @@ enum DataError: Error {
 
 typealias Handler = (Result<ApiResponse, DataError>) -> ()
 
-class ApiManager {
+final class ApiManager {
     static let shared = ApiManager()
     ///Object can be made only inside this class.
     private init() {}
     
     ///Result is a value that represents either a success or a failure
     func fetchCountryList(completion: @escaping Handler) {
-        guard let url = URL(string: API.countryApi) else { return }
+        guard let url = URL(string: Assets.API.countryApi) else { return }
         ///URLSession:
         ///Calls network for us
         ///Networking class
