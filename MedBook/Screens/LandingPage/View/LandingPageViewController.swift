@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LandingPageViewController: UIViewController {
+final class LandingPageViewController: UIViewController {
     
     let landingPageViews = LandingPageViews()
         
@@ -15,5 +15,4 @@ class LandingPageViewController: UIViewController {
         super.viewDidLoad()
         configuration()
     }
-    
 }

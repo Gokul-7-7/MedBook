@@ -8,7 +8,7 @@
 import UIKit
 import Security
 
-class AuthTokenManager {
+final class AuthTokenManager {
     
     static func generateRandomToken() -> String {
         return UUID().uuidString

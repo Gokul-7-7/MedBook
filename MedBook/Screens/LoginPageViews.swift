@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginPageViews {
+final class LoginPageViews {
     
     lazy var simulatedLargeTitleLabel: UILabel = {
         let label = UILabel()

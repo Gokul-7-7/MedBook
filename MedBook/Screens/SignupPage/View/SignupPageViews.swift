@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignupPageViews {
+final class SignupPageViews {
     
     lazy var activityIndicator: UIActivityIndicatorView = {
         return UIActivityIndicatorView()

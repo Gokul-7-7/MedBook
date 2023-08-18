@@ -20,7 +20,7 @@ protocol SignupPageViewModelProtocol: AnyObject {
     func validateSpecialCharacters() -> Bool
 }
 
-class SignupPageViewModelImpl: SignupPageViewModelProtocol {
+final class SignupPageViewModelImpl: SignupPageViewModelProtocol {
     
     ///data binding using closure method
     var eventHandler: State?

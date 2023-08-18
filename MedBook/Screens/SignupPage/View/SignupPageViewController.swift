@@ -8,7 +8,7 @@
 import UIKit
 import CryptoKit
 
-class SignupPageViewController: UIViewController {
+final class SignupPageViewController: UIViewController {
     
     let customBackgroundView = BackgroundView().customBackgroundWithShape
     let signupPageViews = SignupPageViews()

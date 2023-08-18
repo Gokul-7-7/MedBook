@@ -8,7 +8,7 @@
 import UIKit
 import Security
 
-class HomePageViewController: UIViewController {
+final class HomePageViewController: UIViewController {
     
     lazy var headerLabel: UILabel = {
         let label = UILabel()

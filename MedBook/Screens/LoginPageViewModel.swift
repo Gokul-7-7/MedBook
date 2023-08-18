@@ -17,7 +17,7 @@ protocol LoginPageViewModelProtocol: AnyObject {
     func login(email: String, password: String, completion: @escaping StatusHandler)
 }
 
-class LoginViewModelImpl: LoginPageViewModelProtocol {    
+final class LoginViewModelImpl: LoginPageViewModelProtocol {    
     
     private let coreDataManager: CoreDataManager
     var email: String?

@@ -16,7 +16,7 @@ enum DataError: Error {
 
 typealias Handler = (Result<ApiResponse, DataError>) -> ()
 
-class ApiManager {
+final class ApiManager {
     static let shared = ApiManager()
     ///Object can be made only inside this class.
     private init() {}

@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 import CryptoKit
 
-class LoginPageViewController: UIViewController {
+final class LoginPageViewController: UIViewController {
     
     let customBackgroundView = BackgroundView().customBackgroundWithShape
     let loginPageViews = LoginPageViews()
