@@ -29,8 +29,9 @@ extension LoginPageViewController {
         let customBackButtonItem = UIBarButtonItem(customView: backButton)
         
         // Set the custom button as the left bar button item
-        navigationItem.leftBarButtonItem = customBackButtonItem    }
-    
+        navigationItem.leftBarButtonItem = customBackButtonItem
+    }
+    // MARK: - Constraints setup methods
     func setupConstraints() {
         setupPageTitleConstraints()
         setupEmailTextFieldConstraints()

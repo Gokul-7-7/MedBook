@@ -31,11 +31,12 @@ class HomePageViewController: UIViewController {
         return button
     }()
     
+    // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-    
+    // MARK: - Logout button action
     @objc func logoutButtonTapped() {
         if AuthTokenManager.removeAuthToken() {
             print("Auth token removed successfully")
@@ -46,6 +47,7 @@ class HomePageViewController: UIViewController {
         }
     }
     
+    // MARK: - Methods
     func replaceRootViewController() {
         // Create a new instance of the view controller you want to set as root
         let newRootViewController: UIViewController = UINavigationController(rootViewController: LandingPageViewController())
@@ -58,5 +60,6 @@ class HomePageViewController: UIViewController {
                 window.rootViewController = newRootViewController
             }
         }
+        self.showToast(message: "Logged Out Successfully")
     }
 }

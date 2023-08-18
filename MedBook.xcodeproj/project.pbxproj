@@ -251,7 +251,6 @@
 		55850C1A2A8D416800A725D2 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
-				55850C662A8E2A5700A725D2 /* Constants */,
 				55850C652A8E2A5300A725D2 /* View */,
 			);
 			path = HomePage;
@@ -305,8 +304,8 @@
 		55850C302A8DC22200A725D2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				55850C312A8DC25100A725D2 /* SignupPageViewController.swift */,
 				55850C332A8DC2AC00A725D2 /* SignupPageViews.swift */,
+				55850C312A8DC25100A725D2 /* SignupPageViewController.swift */,
 				55850C352A8DC44100A725D2 /* SignupPageViewController+Constraints.swift */,
 				55850C422A8DFC8100A725D2 /* SignupPageViewController+ViewModel.swift */,
 				55850C492A8E041600A725D2 /* TextFieldDelegate */,
@@ -375,13 +374,6 @@
 				55850C692A8E2A7500A725D2 /* HomePageViewController+Constraints.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		55850C662A8E2A5700A725D2 /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Constants;
 			sourceTree = "<group>";
 		};
 		55850C772A8E712C00A725D2 /* TextFieldDelegate */ = {

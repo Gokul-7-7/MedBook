@@ -82,9 +82,9 @@ extension SignupPageViewController {
     // MARK: - Activity Indicator
     func setupActivityIndicatorConstraints() {
         signupPageViews.activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        signupPageViews.countryPickerView.addSubview(signupPageViews.activityIndicator)
-        signupPageViews.activityIndicator.centerXAnchor.constraint(equalTo: signupPageViews.countryPickerView.centerXAnchor).isActive = true
-        signupPageViews.activityIndicator.centerYAnchor.constraint(equalTo: signupPageViews.countryPickerView.centerYAnchor).isActive = true
+        view.addSubview(signupPageViews.activityIndicator)
+        signupPageViews.activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        signupPageViews.activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
     func setupProceedButtonConstraints() {
