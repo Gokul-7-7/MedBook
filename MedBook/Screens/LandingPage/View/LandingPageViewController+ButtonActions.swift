@@ -13,7 +13,7 @@ extension LandingPageViewController {
         landingPageViews.loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         landingPageViews.signupButton.addTarget(self, action: #selector(signupButtonTapped), for: .touchUpInside)
     }
-    
+    //Is this correct?
     @objc func loginButtonTapped() {
         let coreDataManager = CoreDataManager()
         let loginPageVC = LoginPageViewController(viewModel: LoginViewModelImpl(coreDataManager: coreDataManager))
@@ -21,7 +21,7 @@ extension LandingPageViewController {
     }
     
     @objc func signupButtonTapped() {
-        let viewModel = SignupPageViewModelImpl()
+        let viewModel = SignupPageViewModelImpl(coreDataManager: CoreDataManager())
         let signupPageVC = SignupPageViewController(viewModel: viewModel)
         self.navigationController?.pushViewController(signupPageVC, animated: true)
     }

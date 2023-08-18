@@ -16,7 +16,6 @@
 		55850C132A8D405700A725D2 /* Degular-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55850C102A8D405700A725D2 /* Degular-Medium.ttf */; };
 		55850C142A8D405700A725D2 /* Degular-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55850C112A8D405700A725D2 /* Degular-Regular.ttf */; };
 		55850C152A8D405700A725D2 /* Degular-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 55850C122A8D405700A725D2 /* Degular-Semibold.ttf */; };
-		55850C1E2A8D452A00A725D2 /* LandingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55850C1D2A8D452A00A725D2 /* LandingPageViewModel.swift */; };
 		55850C202A8D453900A725D2 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55850C1F2A8D453900A725D2 /* LandingPageViewController.swift */; };
 		55850C222A8D463900A725D2 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55850C212A8D463900A725D2 /* UIView + Extension.swift */; };
 		55850C252A8D477500A725D2 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55850C242A8D477500A725D2 /* BackgroundView.swift */; };
@@ -66,7 +65,6 @@
 		55850C102A8D405700A725D2 /* Degular-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Degular-Medium.ttf"; sourceTree = "<group>"; };
 		55850C112A8D405700A725D2 /* Degular-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Degular-Regular.ttf"; sourceTree = "<group>"; };
 		55850C122A8D405700A725D2 /* Degular-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Degular-Semibold.ttf"; sourceTree = "<group>"; };
-		55850C1D2A8D452A00A725D2 /* LandingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewModel.swift; sourceTree = "<group>"; };
 		55850C1F2A8D453900A725D2 /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		55850C212A8D463900A725D2 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		55850C242A8D477500A725D2 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
@@ -222,7 +220,6 @@
 			isa = PBXGroup;
 			children = (
 				55850C1B2A8D450A00A725D2 /* View */,
-				55850C1C2A8D451300A725D2 /* ViewModel */,
 			);
 			path = LandingPage;
 			sourceTree = "<group>";
@@ -265,14 +262,6 @@
 				55850C2C2A8D661D00A725D2 /* LandingPageViewController+ButtonActions.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		55850C1C2A8D451300A725D2 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				55850C1D2A8D452A00A725D2 /* LandingPageViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		55850C232A8D475E00A725D2 /* Views */ = {
@@ -496,7 +485,6 @@
 				55850C432A8DFC8100A725D2 /* SignupPageViewController+ViewModel.swift in Sources */,
 				55850C342A8DC2AC00A725D2 /* SignupPageViews.swift in Sources */,
 				55850BF32A8CF61600A725D2 /* SceneDelegate.swift in Sources */,
-				55850C1E2A8D452A00A725D2 /* LandingPageViewModel.swift in Sources */,
 				55850C682A8E2A6800A725D2 /* HomePageViewController.swift in Sources */,
 				55850C7E2A8E7EEA00A725D2 /* AuthTokenManager.swift in Sources */,
 			);

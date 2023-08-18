@@ -8,7 +8,7 @@
 import UIKit
 
 extension SignupPageViewController {
-   
+    
     func setupUI() {
         view = customBackgroundView
         setupNavigation()
@@ -30,6 +30,7 @@ extension SignupPageViewController {
         navigationItem.leftBarButtonItem = customBackButtonItem
     }
     
+    // MARK: - Constraints setup methods
     func setupConstraints() {
         setupPageTitleConstraints()
         setupEmailTextFieldConstraints()

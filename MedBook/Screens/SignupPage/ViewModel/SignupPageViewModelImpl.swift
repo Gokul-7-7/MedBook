@@ -27,9 +27,11 @@ class SignupPageViewModelImpl: SignupPageViewModelProtocol {
     var countryList: [Country]?
     private var email: String = ""
     private var password: String = ""
+    private let coreDataManager: CoreDataManager
     
-    init(eventHandler: State? = nil) {
+    init(eventHandler: State? = nil, coreDataManager: CoreDataManager) {
         self.eventHandler = eventHandler
+        self.coreDataManager = coreDataManager
     }
     
     func onViewDidLoad() {

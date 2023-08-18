@@ -20,6 +20,7 @@ extension HomePageViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.hidesBackButton = true
     }
+    
     // MARK: - Constraints setup methods
     func setupConstraints() {
         setupLogutButtonConstraints()
@@ -27,6 +28,7 @@ extension HomePageViewController {
     }
     
     func setupHeaderConstraints() {
+        headerLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(headerLabel)
         headerLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingTop: 0, paddingLeft: 16, paddingBottom: 0, paddingRight: 16, width: nil, height: nil, enableInsets: false)
     }
