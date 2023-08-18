@@ -24,7 +24,7 @@ final class LoginPageViews {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.borderStyle = .none
         textField.placeholder = "Email"
-        textField.font = UIFont(name: Font.degularMedium, size: 18)
+        textField.font = UIFont(name: Assets.Font.degularMedium, size: 18)
         textField.textColor = .black
         textField.autocapitalizationType = .none
         textField.clearButtonMode = .whileEditing
@@ -41,7 +41,7 @@ final class LoginPageViews {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.borderStyle = .none
         textField.placeholder = "Password"
-        textField.font = UIFont(name: Font.degularMedium, size: 18)
+        textField.font = UIFont(name: Assets.Font.degularMedium, size: 18)
         textField.textColor = .black
         textField.isSecureTextEntry = true
         textField.passwordRules = .none
@@ -59,10 +59,9 @@ final class LoginPageViews {
         let button = UIButton(type: .system)
         button.setTitle("Login ", for: .normal)
         button.titleLabel?.textColor = .gray
-        button.titleLabel?.font = UIFont(name: Font.degularBold, size: 22)
-        button.backgroundColor = Colors.buttonBackground
+        button.titleLabel?.font = UIFont(name: Assets.Font.degularBold, size: 22)
+        button.backgroundColor = Assets.Colors.buttonBackground
         button.setTitleColor(.gray, for: .normal)
-        //button.setImage(UIImage(systemName: "arrow.right")?.withTintColor(.gray), for: .normal)
         let image = UIImage(systemName: "arrow.right")?.withRenderingMode(.alwaysTemplate)
         let imageView = UIImageView(image: image)
         imageView.tintColor = .black

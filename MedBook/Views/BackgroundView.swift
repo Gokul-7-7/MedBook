@@ -12,7 +12,7 @@ class BackgroundView {
     lazy var customBackgroundWithShape: UIView = {
         let view = UIView()
         view.backgroundColor = .white
-        let backgroundImage = UIImageView(image: UIImage(named: Images.curveShape))
+        let backgroundImage = UIImageView(image: UIImage(named: Assets.Images.curveShape))
         backgroundImage.contentMode = .scaleAspectFit
         backgroundImage.clipsToBounds = true
         backgroundImage.translatesAutoresizingMaskIntoConstraints = false

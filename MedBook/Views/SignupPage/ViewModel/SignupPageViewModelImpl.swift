@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum AuthError: Error {
+    case error(String)
+}
+
 protocol SignupPageViewModelProtocol: AnyObject {
     typealias State = (Event) -> Void
     var eventHandler: State? { get set }
@@ -18,6 +22,7 @@ protocol SignupPageViewModelProtocol: AnyObject {
     func validateCharacterCount() -> Bool
     func validateUpperCaseLetters() -> Bool
     func validateSpecialCharacters() -> Bool
+    func saveUser(email: String?, password: String?, completion: @escaping (Result<String, AuthError>) -> Void)
 }
 
 final class SignupPageViewModelImpl: SignupPageViewModelProtocol {
@@ -28,14 +33,54 @@ final class SignupPageViewModelImpl: SignupPageViewModelProtocol {
     private var email: String = ""
     private var password: String = ""
     private let coreDataManager: CoreDataManager
+    private let apiManager: ApiManager
     
-    init(eventHandler: State? = nil, coreDataManager: CoreDataManager) {
-        self.eventHandler = eventHandler
+    init(
+        coreDataManager: CoreDataManager = CoreDataManager(),
+        apiManager: ApiManager = ApiManager.shared
+    ) {
         self.coreDataManager = coreDataManager
+        self.apiManager = apiManager
     }
     
     func onViewDidLoad() {
-        fetchCountryList()
+        DispatchQueue.main.async {
+            self.fetchCountryList()
+        }
+    }
+    
+    private func saveAuthToken(completion: @escaping (Result<String, AuthError>) -> Void) {
+        let authToken = AuthTokenManager.generateRandomToken()
+        // Save the auth token securely in the Keychain
+        if AuthTokenManager.saveAuthToken(authToken) {
+            completion(.success(""))
+            print("Auth token saved successfully after signup")
+        } else {
+            completion(.failure(.error("Error")))
+            print("Failed to save auth token after signup")
+        }
+    }
+    
+    func saveUser(email: String?, password: String?, completion: @escaping (Result<String, AuthError>) -> Void) {
+        guard let username = email, !username.isEmpty,
+              let password = password, !password.isEmpty else {
+            return
+        }
+        coreDataManager.saveUser(email: username, password: password) { [weak self] userSaved in
+            guard let self else { return }
+            if userSaved {
+                self.saveAuthToken() { result in
+                    switch result {
+                    case .success(_):
+                        completion(.success("Signup successful"))
+                    case .failure:
+                        completion(.failure(.error("Signup failed")))
+                    }
+                }
+            } else {
+                completion(.failure(.error("Signup failed")))
+            }
+        }
     }
 }
 
@@ -69,7 +114,8 @@ extension SignupPageViewModelImpl {
 extension SignupPageViewModelImpl {
     func fetchCountryList() {
         eventHandler?(.loading)
-        ApiManager.shared.fetchCountryList { response in
+        apiManager.fetchCountryList { [weak self] response in
+            guard let self else { return }
             self.eventHandler?(.stopLoading)
             switch response {
             case .success(let countryListResponse):

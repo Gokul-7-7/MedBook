@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct Country: Codable {
+struct Country: Decodable {
     var country: String?
 }

@@ -10,18 +10,18 @@ import Security
 
 final class HomePageViewController: UIViewController {
     
-    lazy var headerLabel: UILabel = {
+    private lazy var headerLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: Font.degularMedium, size: 32)
+        label.font = UIFont(name: Assets.Font.degularMedium, size: 32)
         label.numberOfLines = 2
         label.text = "Which topic interests you today?"
         return label
     }()
     
-    lazy var logoutButton: UIButton = {
+    private lazy var logoutButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Logout", for: .normal)
-        button.titleLabel?.font = UIFont(name: Font.degularMedium, size: 22)
+        button.titleLabel?.font = UIFont(name: Assets.Font.degularMedium, size: 22)
         button.setTitleColor(.systemRed, for: .normal)
         button.semanticContentAttribute = .forceRightToLeft
         button.layer.cornerRadius = 12
@@ -34,7 +34,6 @@ final class HomePageViewController: UIViewController {
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Colors.backgroundColorWhite
         setupUI()
     }
     
@@ -50,7 +49,7 @@ final class HomePageViewController: UIViewController {
     }
     
     // MARK: - Methods
-    func replaceRootViewController() {
+    private func replaceRootViewController() {
         // Create a new instance of the view controller you want to set as root
         let newRootViewController: UIViewController = UINavigationController(rootViewController: LandingPageViewController())
         // Access the SceneDelegate
@@ -62,4 +61,40 @@ final class HomePageViewController: UIViewController {
         }
         self.showToast(message: "Logged Out Successfully")
     }
+}
+
+private extension HomePageViewController {
+    
+    func setupUI() {
+        setupNavigation()
+        view.backgroundColor = UIColor(hex: "FAFAFA")
+        setupConstraints()
+    }
+    
+    func setupNavigation() {
+        title = Copies.NavigationTitle.medBookTitle
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.hidesBackButton = true
+    }
+    
+    // MARK: - Constraints setup methods
+    func setupConstraints() {
+        setupLogutButtonConstraints()
+        setupHeaderConstraints()
+    }
+    
+    func setupHeaderConstraints() {
+        headerLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(headerLabel)
+        headerLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingTop: 0, paddingLeft: 16, paddingBottom: 0, paddingRight: 16, width: nil, height: nil, enableInsets: false)
+    }
+    
+    func setupLogutButtonConstraints() {
+        logoutButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(logoutButton)
+        logoutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        logoutButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24).isActive = true
+        logoutButton.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
+    }
+    
 }

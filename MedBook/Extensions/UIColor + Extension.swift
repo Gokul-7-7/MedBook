@@ -9,7 +9,7 @@ import UIKit
 
 extension UIColor {
     convenience init?(hex: String, alpha: CGFloat = 1.0) {
-        var sanitizedHex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+        let sanitizedHex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var rgbValue: UInt64 = 0
         
         Scanner(string: sanitizedHex).scanHexInt64(&rgbValue)
