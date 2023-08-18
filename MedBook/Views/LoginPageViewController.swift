@@ -27,7 +27,6 @@ final class LoginPageViewController: UIViewController {
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = LoginViewModelImpl()
         setupUI()
     }
     
