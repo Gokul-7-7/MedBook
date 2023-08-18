@@ -36,7 +36,6 @@
 		55850C5F2A8E1E2C00A725D2 /* LoginPageViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55850C5E2A8E1E2C00A725D2 /* LoginPageViews.swift */; };
 		55850C632A8E280600A725D2 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55850C622A8E280600A725D2 /* UIViewController + Extension.swift */; };
 		55850C682A8E2A6800A725D2 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55850C672A8E2A6700A725D2 /* HomePageViewController.swift */; };
-		55850C6A2A8E2A7500A725D2 /* HomePageViewController+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55850C692A8E2A7500A725D2 /* HomePageViewController+Constraints.swift */; };
 		55850C6E2A8E2F5A00A725D2 /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55850C6D2A8E2F5A00A725D2 /* CheckBoxView.swift */; };
 		55850C702A8E3A5200A725D2 /* AssetConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55850C6F2A8E3A5200A725D2 /* AssetConstants.swift */; };
 		55850C722A8E3A6000A725D2 /* CopyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55850C712A8E3A6000A725D2 /* CopyConstants.swift */; };
@@ -80,7 +79,6 @@
 		55850C5E2A8E1E2C00A725D2 /* LoginPageViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViews.swift; sourceTree = "<group>"; };
 		55850C622A8E280600A725D2 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 		55850C672A8E2A6700A725D2 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
-		55850C692A8E2A7500A725D2 /* HomePageViewController+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomePageViewController+Constraints.swift"; sourceTree = "<group>"; };
 		55850C6D2A8E2F5A00A725D2 /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
 		55850C6F2A8E3A5200A725D2 /* AssetConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetConstants.swift; sourceTree = "<group>"; };
 		55850C712A8E3A6000A725D2 /* CopyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyConstants.swift; sourceTree = "<group>"; };
@@ -329,7 +327,6 @@
 			isa = PBXGroup;
 			children = (
 				55850C672A8E2A6700A725D2 /* HomePageViewController.swift */,
-				55850C692A8E2A7500A725D2 /* HomePageViewController+Constraints.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -439,7 +436,6 @@
 				55850C412A8DF95F00A725D2 /* Event.swift in Sources */,
 				55850C5D2A8E1D3B00A725D2 /* LoginPageViewModel.swift in Sources */,
 				55850C7B2A8E71E100A725D2 /* UITextField + Extension.swift in Sources */,
-				55850C6A2A8E2A7500A725D2 /* HomePageViewController+Constraints.swift in Sources */,
 				55850BFB2A8CF61600A725D2 /* MedBook.xcdatamodeld in Sources */,
 				55850C462A8DFE6800A725D2 /* SignupPageViewController+PickerDataSource.swift in Sources */,
 				55850C3E2A8DF8F500A725D2 /* SignupPageViewModelImpl.swift in Sources */,
