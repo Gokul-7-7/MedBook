@@ -22,7 +22,7 @@ class HomePageViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Logout", for: .normal)
         button.titleLabel?.font = UIFont(name: Font.degularMedium, size: 22)
-        button.setTitleColor(.red, for: .normal)
+        button.setTitleColor(.systemRed, for: .normal)
         button.semanticContentAttribute = .forceRightToLeft
         button.layer.cornerRadius = 12
         button.layer.borderWidth = 0

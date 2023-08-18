@@ -51,6 +51,7 @@
 		55850C792A8E714B00A725D2 /* LoginPageViewController+TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55850C782A8E714B00A725D2 /* LoginPageViewController+TextFieldDelegate.swift */; };
 		55850C7B2A8E71E100A725D2 /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55850C7A2A8E71E100A725D2 /* UITextField + Extension.swift */; };
 		55850C7E2A8E7EEA00A725D2 /* AuthTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55850C7D2A8E7EEA00A725D2 /* AuthTokenManager.swift */; };
+		55850C802A8F266300A725D2 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55850C7F2A8F266300A725D2 /* UIColor + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,7 @@
 		55850C782A8E714B00A725D2 /* LoginPageViewController+TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginPageViewController+TextFieldDelegate.swift"; sourceTree = "<group>"; };
 		55850C7A2A8E71E100A725D2 /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
 		55850C7D2A8E7EEA00A725D2 /* AuthTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTokenManager.swift; sourceTree = "<group>"; };
+		55850C7F2A8F266300A725D2 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 				55850C4F2A8E102C00A725D2 /* String + Extension.swift */,
 				55850C622A8E280600A725D2 /* UIViewController + Extension.swift */,
 				55850C7A2A8E71E100A725D2 /* UITextField + Extension.swift */,
+				55850C7F2A8F266300A725D2 /* UIColor + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				55850C612A8E1EB000A725D2 /* LoginPageViewContoller+Constraints.swift in Sources */,
 				55850C362A8DC44100A725D2 /* SignupPageViewController+Constraints.swift in Sources */,
 				55850C222A8D463900A725D2 /* UIView + Extension.swift in Sources */,
+				55850C802A8F266300A725D2 /* UIColor + Extension.swift in Sources */,
 				55850C272A8D514300A725D2 /* LandingPageViews.swift in Sources */,
 				55850C5F2A8E1E2C00A725D2 /* LoginPageViews.swift in Sources */,
 				55850C762A8E6CF800A725D2 /* LoginStatus.swift in Sources */,

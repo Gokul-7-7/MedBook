@@ -11,7 +11,7 @@ extension HomePageViewController {
     
     func setupUI() {
         setupNavigation()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(hex: "FAFAFA")
         setupConstraints()
     }
     
