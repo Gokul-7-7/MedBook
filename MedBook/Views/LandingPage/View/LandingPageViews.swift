@@ -21,10 +21,10 @@ final class LandingPageViews {
         button.setTitle("Signup", for: .normal)
         button.titleLabel?.font = UIFont(name: Assets.Font.degularBold, size: 22)
         button.backgroundColor = Assets.Colors.buttonBackground
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(Assets.Colors.backgroundColorBlack, for: .normal)
         button.layer.cornerRadius = 12
         button.layer.borderWidth = 1.5
-        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderColor = Assets.Colors.backgroundColorBlack?.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -32,12 +32,12 @@ final class LandingPageViews {
     lazy var loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Login", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(Assets.Colors.backgroundColorBlack, for: .normal)
         button.titleLabel?.font = UIFont(name: Assets.Font.degularBold, size: 22)
         button.backgroundColor = Assets.Colors.buttonBackground
         button.layer.cornerRadius = 12
         button.layer.borderWidth = 1.5
-        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderColor = Assets.Colors.backgroundColorBlack.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

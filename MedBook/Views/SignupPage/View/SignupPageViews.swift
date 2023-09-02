@@ -29,7 +29,7 @@ final class SignupPageViews {
         textField.borderStyle = .none
         textField.placeholder = "Email"
         textField.font = UIFont(name: Assets.Font.degularMedium, size: 18)
-        textField.textColor = .black
+        textField.textColor = Assets.Colors.backgroundColorBlack
         textField.autocapitalizationType = .none
         textField.clearButtonMode = .whileEditing
         let bottomLine = UIView()
@@ -46,7 +46,7 @@ final class SignupPageViews {
         textField.borderStyle = .none
         textField.placeholder = "Password"
         textField.font = UIFont(name: Assets.Font.degularMedium, size: 18)
-        textField.textColor = .black
+        textField.textColor = Assets.Colors.backgroundColorBlack
         textField.isSecureTextEntry = true
         textField.textContentType = .oneTimeCode
         textField.autocapitalizationType = .none
@@ -67,7 +67,7 @@ final class SignupPageViews {
     lazy var letsGoButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Let's go ", for: .normal)
-        button.titleLabel?.textColor = .gray
+        button.titleLabel?.textColor = .systemGray
         button.titleLabel?.font = UIFont(name: Assets.Font.degularBold, size: 22)
         button.backgroundColor = Assets.Colors.buttonBackground
         button.setTitleColor(.gray, for: .normal)
@@ -76,7 +76,7 @@ final class SignupPageViews {
         button.layer.cornerRadius = 12
         button.layer.borderWidth = 1.5
         button.isEnabled = false
-        button.layer.borderColor = UIColor.lightGray.cgColor
+        button.layer.borderColor = UIColor.systemGray.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
@@ -97,7 +97,7 @@ final class SignupPageViews {
         
         label.text = "At least 8 characters"
         label.font = UIFont(name: Assets.Font.degularSemibold, size: 18)
-        label.textColor = .black
+        label.textColor = Assets.Colors.backgroundColorBlack
         label.translatesAutoresizingMaskIntoConstraints = false
         
         stackView.addArrangedSubview(checkBoxView)
@@ -145,7 +145,7 @@ final class SignupPageViews {
         
         label.text = "Contains a special character"
         label.font = UIFont(name: Assets.Font.degularSemibold, size: 18)
-        label.textColor = .black
+        label.textColor = Assets.Colors.backgroundColorBlack
         label.translatesAutoresizingMaskIntoConstraints = false
         
         stackView.addArrangedSubview(checkBoxView)

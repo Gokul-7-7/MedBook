@@ -71,7 +71,7 @@ private extension SignupPageViewController {
         let backButton = UIButton(type: .system)
         backButton.setTitle("", for: .normal) // No text
         backButton.setImage(UIImage(systemName: Assets.Images.leftArrow), for: .normal)
-        backButton.tintColor = .black
+        backButton.tintColor = Assets.Colors.backgroundColorBlack
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         backButton.sizeToFit()
         let customBackButtonItem = UIBarButtonItem(customView: backButton)

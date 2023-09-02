@@ -112,9 +112,15 @@ extension SignupPageViewModelImpl {
 }
 
 extension SignupPageViewModelImpl {
+    
+    func fetchCountryList(completion: @escaping (Result<ApiResponse, DataError>) -> ()) {
+        guard let url = URL(string: Assets.API.countryApi) else { return }
+        apiManager.fetch(url: url, completion: completion)
+    }
+    
     func fetchCountryList() {
         eventHandler?(.loading)
-        apiManager.fetchCountryList { [weak self] response in
+        fetchCountryList { [weak self] response in
             guard let self else { return }
             self.eventHandler?(.stopLoading)
             switch response {

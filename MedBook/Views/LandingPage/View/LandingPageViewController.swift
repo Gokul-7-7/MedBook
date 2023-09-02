@@ -69,7 +69,6 @@ private extension LandingPageViewController {
     }
     
     @objc func loginButtonTapped() {
-        let coreDataManager = CoreDataManager()
         let loginPageVC = LoginPageViewController()
         self.navigationController?.pushViewController(loginPageVC, animated: true)
     }

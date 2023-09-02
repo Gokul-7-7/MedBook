@@ -27,14 +27,58 @@ final class HomePageViewController: UIViewController {
         button.layer.cornerRadius = 12
         button.layer.borderWidth = 0
         button.translatesAutoresizingMaskIntoConstraints = false
-        
         return button
     }()
+    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.keyboardDismissMode = .onDrag
+        tableView.separatorStyle = .none
+        return tableView
+    }()
+    
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.color = .gray
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+    
+    private lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "Search for books"
+        searchBar.backgroundImage = UIImage()
+        searchBar.delegate = self
+        return searchBar
+    }()
+    
+    var response: HomePageListResponse?
+    private var titleString: String?
+    var viewModel: HomePageViewModelProtocol
+    var workItem : DispatchWorkItem?
+    var selectedCountry: String?
+    
+    // MARK: - Initialiser
+    init(viewModel: HomePageViewModelProtocol = HomePageViewModel()) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        setDelegateAndDataSource()
+        registerCustomView()
         setupUI()
+        configuration()
+    }
+    
+    func registerCustomView() {
+        tableView.register(UINib(nibName: "BookListTableViewCell", bundle: nil), forCellReuseIdentifier: "BookListTableViewCell")
     }
     
     // MARK: - Logout button action
@@ -79,22 +123,126 @@ private extension HomePageViewController {
     
     // MARK: - Constraints setup methods
     func setupConstraints() {
-        setupLogutButtonConstraints()
+        setupActivityIndicatorConstraints()
         setupHeaderConstraints()
+        setupSearchBarConstraints()
+        setupTableViewConstraints()
+    }
+    
+    func setupActivityIndicatorConstraints() {
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        tableView.addSubview(activityIndicator)
+        activityIndicator.centerXAnchor.constraint(equalTo: tableView.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: tableView.centerYAnchor).isActive = true
     }
     
     func setupHeaderConstraints() {
-        headerLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(headerLabel)
         headerLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingTop: 0, paddingLeft: 16, paddingBottom: 0, paddingRight: 16, width: nil, height: nil, enableInsets: false)
+    }
+    
+    func setupSearchBarConstraints() {
+        view.addSubview(searchBar)
+        searchBar.anchor(top: headerLabel.bottomAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingTop: 8, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: nil, height: 50, enableInsets: false)
+    }
+    
+    func setupTableViewConstraints() {
+        view.addSubview(tableView)
+        tableView.anchor(top: searchBar.bottomAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingTop: 8, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: nil, height: nil, enableInsets: false)
     }
     
     func setupLogutButtonConstraints() {
         logoutButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(logoutButton)
+        logoutButton.topAnchor.constraint(greaterThanOrEqualTo: tableView.bottomAnchor, constant: 4).isActive = true
         logoutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         logoutButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24).isActive = true
         logoutButton.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
     }
+}
+
+private extension HomePageViewController {
+    func configuration() {
+        initViewModel()
+        observeEvent()
+        setupUI()
+    }
     
+    func initViewModel() {
+        viewModel.onViewDidLoad()
+    }
+    
+    func setDelegateAndDataSource() {
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+    
+    func observeEvent() {
+        //capture list
+        viewModel.eventHandler = { [weak self]event in
+            guard let self else { return }
+            switch event {
+            case .loading:
+                DispatchQueue.main.async {
+                    self.activityIndicator.startAnimating()
+                }
+            case .stopLoading:
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                }
+            case .dataLoaded:
+                self.response = self.viewModel.homePageListResponse
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                    self.tableView.reloadData()
+                }
+            case .error(let error):
+                print(error ?? "Error in calling the country list api")
+                DispatchQueue.main.async {
+                    self.showToast(message: "Something went wrong!")
+                }
+            }
+        }
+    }
+}
+
+extension HomePageViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        response?.docs?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookListTableViewCell") as? BookListTableViewCell else { return UITableViewCell() }
+        let doc = response?.docs?[indexPath.row]
+        cell.setupViewWith(data: doc)
+        cell.selectionStyle = .none
+        return cell
+    }
+}
+
+extension HomePageViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let doc = response?.docs?[indexPath.row], let coverI = doc.cover_i, let url = URL(string: "https://covers.openlibrary.org/b/id/\(coverI)-M.jpg") else { return }
+        let viewController = BookDetailViewController(imageUrl: url, doc: doc)
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+extension HomePageViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+       
+        workItem?.cancel()
+        let newWorkItem = DispatchWorkItem {
+            self.viewModel.onSearch(searchText: searchText)
+        }
+        workItem = newWorkItem
+        DispatchQueue.global().asyncAfter(deadline: .now() + 0.7, execute: newWorkItem)
+    }
 }
