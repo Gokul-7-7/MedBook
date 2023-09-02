@@ -18,18 +18,6 @@ final class HomePageViewController: UIViewController {
         return label
     }()
     
-    private lazy var logoutButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Logout", for: .normal)
-        button.titleLabel?.font = UIFont(name: Assets.Font.degularMedium, size: 22)
-        button.setTitleColor(.systemRed, for: .normal)
-        button.semanticContentAttribute = .forceRightToLeft
-        button.layer.cornerRadius = 12
-        button.layer.borderWidth = 0
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.keyboardDismissMode = .onDrag
@@ -219,6 +207,7 @@ private extension HomePageViewController {
         
         let bookMarkButton = UIBarButtonItem(image: UIImage(systemName: "bookmark.fill"), style: .plain, target: self, action: #selector(bookmarkButtonPressed))
         let logoutButton = UIBarButtonItem(image: UIImage(systemName: "arrow.left.to.line"), style: .plain, target: self, action: #selector(logoutButtonTapped))
+        logoutButton.tintColor = .systemRed
         navigationItem.rightBarButtonItems = [bookMarkButton, logoutButton]
     }
     
@@ -362,6 +351,8 @@ extension HomePageViewController: UITableViewDelegate {
 extension HomePageViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        response?.docs?.removeAll()
+        tableView.reloadData()
         workItem?.cancel()
         let newWorkItem = DispatchWorkItem {
             if searchText != "" {
