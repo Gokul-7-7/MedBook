@@ -57,7 +57,6 @@ private extension BookMarkPageViewModel {
         eventHandler?(.stopLoading)
         if let listData = BookMarkDataManager.shared.fetchAllDocsFromCoreData() {
             self.list = listData
-            
             self.observer?.dataLoaded(list: self.list)
             self.observer?.reloadTableView()
             eventHandler?(.dataLoaded)

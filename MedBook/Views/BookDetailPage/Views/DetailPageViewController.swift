@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class BookDetailViewController: UIViewController {
     
@@ -99,7 +100,7 @@ private extension BookDetailViewController {
     
     func setupView() {
         titleLabel.text = viewModel.doc?.title
-        headerImageView.load(url: imageUrl)
+        headerImageView.kf.setImage(with: imageUrl)
         authorLabel.text = doc.author_name?.first
     }
     

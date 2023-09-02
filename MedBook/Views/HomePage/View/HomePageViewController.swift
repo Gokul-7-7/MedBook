@@ -52,6 +52,56 @@ final class HomePageViewController: UIViewController {
         return searchBar
     }()
     
+    private lazy var sortParentStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.distribution = .fill
+        stackView.spacing = 16
+        return stackView
+    }()
+    
+    private lazy var sortButtonsStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.spacing = 4
+        return stackView
+    }()
+    
+    private lazy var sortByLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: Assets.Font.degularMedium, size: 18)
+        label.numberOfLines = 1
+        label.text = "Sort by:"
+        return label
+    }()
+    
+    private lazy var titleSortButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Title", for: .normal)
+        button.titleLabel?.font = UIFont(name: Assets.Font.degularRegular, size: 18)
+        button.setTitleColor(.black, for: .normal)
+        return button
+    }()
+    
+    private lazy var averageSortButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Average", for: .normal)
+        button.titleLabel?.font = UIFont(name: Assets.Font.degularRegular, size: 18)
+        button.setTitleColor(.black, for: .normal)
+        return button
+    }()
+    
+    private lazy var hitsSortButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Hits", for: .normal)
+        button.titleLabel?.font = UIFont(name: Assets.Font.degularRegular, size: 18)
+        button.setTitleColor(.black, for: .normal)
+        return button
+    }()
+    
     var response: HomePageListResponse?
     private var titleString: String?
     var viewModel: HomePageViewModelProtocol
@@ -90,6 +140,23 @@ final class HomePageViewController: UIViewController {
         }
     }
     
+    // MARK: - Sort button actions
+    
+    @objc func titleSortButtonTapped(_ sender: UIButton) {
+        viewModel.currentSortOption = .title
+        viewModel.sortDocs()
+    }
+    
+    @objc func averageSortButtonTapped(_ sender: UIButton) {
+        viewModel.currentSortOption = .ratingsAverage
+        viewModel.sortDocs()
+    }
+    
+    @objc func hitsSortButtonTapped(_ sender: UIButton) {
+        viewModel.currentSortOption = .ratingsCount
+        viewModel.sortDocs()
+    }
+    
     // MARK: - Methods
     private func replaceRootViewController() {
         // Create a new instance of the view controller you want to set as root
@@ -113,6 +180,7 @@ private extension HomePageViewController {
         setupNavigation()
         view.backgroundColor = .systemBackground
         setupConstraints()
+        sortParentStackView.isHidden = true
     }
     
     func setupNavigation() {
@@ -136,6 +204,7 @@ private extension HomePageViewController {
         setupActivityIndicatorConstraints()
         setupHeaderConstraints()
         setupSearchBarConstraints()
+        setupSortBarConstraints()
         setupTableViewConstraints()
     }
     
@@ -156,18 +225,30 @@ private extension HomePageViewController {
         searchBar.anchor(top: headerLabel.bottomAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingTop: 8, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: nil, height: 50, enableInsets: false)
     }
     
-    func setupTableViewConstraints() {
-        view.addSubview(tableView)
-        tableView.anchor(top: searchBar.bottomAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingTop: 8, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: nil, height: nil, enableInsets: false)
+    func setupSortBarConstraints() {
+        setupParentStackViewConstraints()
+        sortParentStackView.addArrangedSubview(sortByLabel)
+        sortParentStackView.addArrangedSubview(sortButtonsStackView)
+        setupSortButtonsStackView()
     }
     
-    func setupLogutButtonConstraints() {
-        logoutButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(logoutButton)
-        logoutButton.topAnchor.constraint(greaterThanOrEqualTo: tableView.bottomAnchor, constant: 4).isActive = true
-        logoutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        logoutButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24).isActive = true
-        logoutButton.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
+    func setupParentStackViewConstraints() {
+        view.addSubview(sortParentStackView)
+        sortParentStackView.anchor(top: searchBar.bottomAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingTop: 8, paddingLeft: 16, paddingBottom: 0, paddingRight: 16, width: nil, height: 30, enableInsets: false)
+    }
+    
+    func setupSortButtonsStackView() {
+        sortButtonsStackView.addArrangedSubview(titleSortButton)
+        sortButtonsStackView.addArrangedSubview(averageSortButton)
+        sortButtonsStackView.addArrangedSubview(hitsSortButton)
+        titleSortButton.addTarget(self, action: #selector(titleSortButtonTapped), for: .touchUpInside)
+        averageSortButton.addTarget(self, action: #selector(averageSortButtonTapped), for: .touchUpInside)
+        hitsSortButton.addTarget(self, action: #selector(hitsSortButtonTapped), for: .touchUpInside)
+    }
+    
+    func setupTableViewConstraints() {
+        view.addSubview(tableView)
+        tableView.anchor(top: sortParentStackView.bottomAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingTop: 8, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: nil, height: nil, enableInsets: false)
     }
 }
 // MARK: - View model related methods
@@ -179,7 +260,8 @@ private extension HomePageViewController {
     }
     
     func initViewModel() {
-        viewModel.onViewDidLoad()
+        viewModel.currentSortOption = .title
+        viewModel.sortDocs()
     }
     
     func setDelegateAndDataSource() {
@@ -193,6 +275,7 @@ private extension HomePageViewController {
             switch event {
             case .loading:
                 DispatchQueue.main.async {
+                    self.sortParentStackView.isHidden = false
                     self.activityIndicator.startAnimating()
                 }
             case .stopLoading:
@@ -204,6 +287,7 @@ private extension HomePageViewController {
                 DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()
                     self.tableView.reloadData()
+                    self.sortParentStackView.isHidden = false
                 }
             case .error(let error):
                 print(error ?? "Error in calling the country list api")

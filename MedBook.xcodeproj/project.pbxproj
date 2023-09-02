@@ -19,9 +19,6 @@
 		554D22202AA1C55600FBC641 /* BookListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D221E2AA1C55600FBC641 /* BookListTableViewCell.swift */; };
 		554D22212AA1C55600FBC641 /* BookListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 554D221F2AA1C55600FBC641 /* BookListTableViewCell.xib */; };
 		554D22252AA1E6D600FBC641 /* DetailPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D22242AA1E6D600FBC641 /* DetailPageViewController.swift */; };
-		554D22272AA1F00000FBC641 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D22262AA1F00000FBC641 /* HomeCoordinator.swift */; };
-		554D222A2AA1F01C00FBC641 /* HomeNW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D22292AA1F01C00FBC641 /* HomeNW.swift */; };
-		554D222C2AA1F02500FBC641 /* HomeDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D222B2AA1F02500FBC641 /* HomeDB.swift */; };
 		554D22302AA2199900FBC641 /* HomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D222F2AA2199900FBC641 /* HomePageViewModel.swift */; };
 		55850BF12A8CF61600A725D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55850BF02A8CF61600A725D2 /* AppDelegate.swift */; };
 		55850BF32A8CF61600A725D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55850BF22A8CF61600A725D2 /* SceneDelegate.swift */; };
@@ -75,9 +72,6 @@
 		554D221E2AA1C55600FBC641 /* BookListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListTableViewCell.swift; sourceTree = "<group>"; };
 		554D221F2AA1C55600FBC641 /* BookListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookListTableViewCell.xib; sourceTree = "<group>"; };
 		554D22242AA1E6D600FBC641 /* DetailPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageViewController.swift; sourceTree = "<group>"; };
-		554D22262AA1F00000FBC641 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
-		554D22292AA1F01C00FBC641 /* HomeNW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNW.swift; sourceTree = "<group>"; };
-		554D222B2AA1F02500FBC641 /* HomeDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDB.swift; sourceTree = "<group>"; };
 		554D222F2AA2199900FBC641 /* HomePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewModel.swift; sourceTree = "<group>"; };
 		55850BED2A8CF61600A725D2 /* MedBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55850BF02A8CF61600A725D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -227,15 +221,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		554D22282AA1F01000FBC641 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				554D22292AA1F01C00FBC641 /* HomeNW.swift */,
-				554D222B2AA1F02500FBC641 /* HomeDB.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		55850BE42A8CF61600A725D2 = {
 			isa = PBXGroup;
 			children = (
@@ -375,9 +360,7 @@
 		55850C1A2A8D416800A725D2 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
-				554D22262AA1F00000FBC641 /* HomeCoordinator.swift */,
 				554D22092AA1B77600FBC641 /* Model */,
-				554D22282AA1F01000FBC641 /* Services */,
 				55850C652A8E2A5300A725D2 /* View */,
 				554D22132AA1BB3000FBC641 /* ViewModel */,
 			);
@@ -571,7 +554,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				554D222C2AA1F02500FBC641 /* HomeDB.swift in Sources */,
 				55850C222A8D463900A725D2 /* UIView + Extension.swift in Sources */,
 				55850C802A8F266300A725D2 /* UIColor + Extension.swift in Sources */,
 				55850C272A8D514300A725D2 /* LandingPageViews.swift in Sources */,
@@ -580,14 +562,12 @@
 				55850C532A8E111900A725D2 /* TextFieldTags.swift in Sources */,
 				55850C742A8E529100A725D2 /* CoreDataManager.swift in Sources */,
 				55850C702A8E3A5200A725D2 /* AssetConstants.swift in Sources */,
-				554D22272AA1F00000FBC641 /* HomeCoordinator.swift in Sources */,
 				554D22302AA2199900FBC641 /* HomePageViewModel.swift in Sources */,
 				554D221A2AA1BFE600FBC641 /* UIImageView + Extension.swift in Sources */,
 				55850C202A8D453900A725D2 /* LandingPageViewController.swift in Sources */,
 				551C90812AA323DF00610878 /* BookMarkPageViewModel.swift in Sources */,
 				55850C3A2A8DF83D00A725D2 /* ApiResponse.swift in Sources */,
 				55850C412A8DF95F00A725D2 /* Event.swift in Sources */,
-				554D222A2AA1F01C00FBC641 /* HomeNW.swift in Sources */,
 				55850C5D2A8E1D3B00A725D2 /* LoginPageViewModel.swift in Sources */,
 				55850C7B2A8E71E100A725D2 /* UITextField + Extension.swift in Sources */,
 				55850BFB2A8CF61600A725D2 /* MedBook.xcdatamodeld in Sources */,

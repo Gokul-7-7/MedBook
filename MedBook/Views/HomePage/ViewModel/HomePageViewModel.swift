@@ -7,14 +7,19 @@
 
 import Foundation
 
+enum SortOption {
+    case title
+    case ratingsAverage
+    case ratingsCount
+}
+
 protocol HomePageViewModelProtocol {
     typealias State = (Event) -> Void
-
+    
     var eventHandler: State? { get set }
-    
-    func onViewDidLoad()
+    func sortDocs()
     var homePageListResponse: HomePageListResponse? { get set }
-    
+    var currentSortOption: SortOption { get set }
     func onSearch(searchText: String?)
 }
 
@@ -24,6 +29,7 @@ final class HomePageViewModel: HomePageViewModelProtocol {
     private let coreDataManager: CoreDataManager
     private let apiManager: ApiManager
     var homePageListResponse: HomePageListResponse?
+    var currentSortOption: SortOption = .title
     
     init(
         coreDataManager: CoreDataManager = CoreDataManager(),
@@ -38,10 +44,19 @@ final class HomePageViewModel: HomePageViewModelProtocol {
         fetchHomePageListResponse(searchText: searchText)
     }
     
-    func onViewDidLoad() {
-        
+    func sortDocs() {
+        eventHandler?(.loading)
+        switch currentSortOption {
+        case .title:
+            homePageListResponse?.docs?.sort { $0.title ?? "" < $1.title ?? "" }
+        case .ratingsAverage:
+            homePageListResponse?.docs?.sort { $0.ratings_average ?? 0.0 > $1.ratings_average ?? 0.0 }
+        case .ratingsCount:
+            homePageListResponse?.docs?.sort { $0.ratings_count ?? 0 > $1.ratings_count ?? 0 }
+        }
+        self.eventHandler?(.stopLoading)
+        self.eventHandler?(.dataLoaded)
     }
-    
 }
 
 private extension HomePageViewModel {

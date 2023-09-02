@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 @objc protocol BookListTableViewCellDelegate: AnyObject {
     @objc optional func bookMarkButtonPressed(key: String)
@@ -64,7 +65,7 @@ class BookListTableViewCell: UITableViewCell {
             self.authorLabel.text = authorName
         }
         guard let coverI = data.cover_i, let url = URL(string: "https://covers.openlibrary.org/b/id/\(coverI)-M.jpg") else { return }
-        bookImageView.load(url: url)
+        bookImageView.kf.setImage(with: url)
     }
     
     func setupBookMarkViewWith(tag: Int, isBookMarked: Bool, data: Doc?, delegate: BookListTableViewCellDelegate) {
@@ -79,7 +80,7 @@ class BookListTableViewCell: UITableViewCell {
             self.authorLabel.text = authorName
         }
         guard let coverI = data.cover_i, let url = URL(string: "https://covers.openlibrary.org/b/id/\(coverI)-M.jpg") else { return }
-        bookImageView.load(url: url)
+        bookImageView.kf.setImage(with: url)
     }
     
     override func prepareForReuse() {
