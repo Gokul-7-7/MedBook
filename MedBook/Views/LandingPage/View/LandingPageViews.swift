@@ -37,7 +37,7 @@ final class LandingPageViews {
         button.backgroundColor = Assets.Colors.buttonBackground
         button.layer.cornerRadius = 12
         button.layer.borderWidth = 1.5
-        button.layer.borderColor = Assets.Colors.backgroundColorBlack.cgColor
+        button.layer.borderColor = Assets.Colors.backgroundColorBlack?.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

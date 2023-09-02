@@ -71,8 +71,6 @@ final class HomePageViewController: UIViewController {
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        setDelegateAndDataSource()
-        registerCustomView()
         setupUI()
         configuration()
     }
@@ -110,8 +108,10 @@ final class HomePageViewController: UIViewController {
 private extension HomePageViewController {
     
     func setupUI() {
+        registerCustomView()
+        setDelegateAndDataSource()
         setupNavigation()
-        view.backgroundColor = UIColor(hex: "FAFAFA")
+        view.backgroundColor = .systemBackground
         setupConstraints()
     }
     
@@ -119,9 +119,19 @@ private extension HomePageViewController {
         title = Copies.NavigationTitle.medBookTitle
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.hidesBackButton = true
+        
+        let bookMarkButton = UIBarButtonItem(image: UIImage(systemName: "bookmark.fill"), style: .plain, target: self, action: #selector(bookmarkButtonPressed))
+        let logoutButton = UIBarButtonItem(image: UIImage(systemName: "arrow.left.to.line"), style: .plain, target: self, action: #selector(logoutButtonTapped))
+        navigationItem.rightBarButtonItems = [bookMarkButton, logoutButton]
     }
     
-    // MARK: - Constraints setup methods
+    @objc func bookmarkButtonPressed(_ sender: UIBarButtonItem) {
+        let vc = BookMarkPageViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    // MARK: - Constraints and view setup methods
     func setupConstraints() {
         setupActivityIndicatorConstraints()
         setupHeaderConstraints()
@@ -160,7 +170,7 @@ private extension HomePageViewController {
         logoutButton.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
     }
 }
-
+// MARK: - View model related methods
 private extension HomePageViewController {
     func configuration() {
         initViewModel()
@@ -178,7 +188,6 @@ private extension HomePageViewController {
     }
     
     func observeEvent() {
-        //capture list
         viewModel.eventHandler = { [weak self]event in
             guard let self else { return }
             switch event {
@@ -206,6 +215,7 @@ private extension HomePageViewController {
     }
 }
 
+// MARK: - TableView Methods
 extension HomePageViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -229,20 +239,24 @@ extension HomePageViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let doc = response?.docs?[indexPath.row], let coverI = doc.cover_i, let url = URL(string: "https://covers.openlibrary.org/b/id/\(coverI)-M.jpg") else { return }
-        let viewController = BookDetailViewController(imageUrl: url, doc: doc)
+        let viewModel = DetailPageViewModel(doc: doc)
+        let viewController = BookDetailViewController(imageUrl: url, doc: doc, viewModel: viewModel)
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
+// MARK: - Search bar delegate
 extension HomePageViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-       
         workItem?.cancel()
         let newWorkItem = DispatchWorkItem {
-            self.viewModel.onSearch(searchText: searchText)
+            if searchText != "" {
+                self.viewModel.onSearch(searchText: searchText)
+            }
         }
         workItem = newWorkItem
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.7, execute: newWorkItem)
     }
+    
 }

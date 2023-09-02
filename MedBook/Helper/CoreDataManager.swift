@@ -57,38 +57,52 @@ final class CoreDataManager {
     func login(email: String, password: String, completion: @escaping (LoginStatus) -> Void) {
         let context = persistentContainer.viewContext
         
-        // Fetch the user with the provided username
+        // Fetch the user with the provided email
+        guard let fetchedUser = fetchUser(withEmail: email, inContext: context) else {
+            completion(.userNotFound)
+            return
+        }
+        
+        // Hash the provided password
+        guard let hashedPasswordData = hashPassword(password) else {
+            completion(.passwordHashFail)
+            return
+        }
+        
+        // Retrieve the hashed password from the fetched user
+        guard let userHashedPassword = fetchedUser.value(forKey: "hashedPassword") as? Data else {
+            completion(.noHashPasswordAttribute)
+            return
+        }
+        
+        // Compare hashed passwords
+        if userHashedPassword == hashedPasswordData {
+            completion(.success) // Passwords match, login successful
+        } else {
+            completion(.passwordMismatch) // Passwords do not match
+        }
+    }
+    
+    // Function to fetch a user with the provided email
+    func fetchUser(withEmail email: String, inContext context: NSManagedObjectContext) -> NSManagedObject? {
         let fetchRequest: NSFetchRequest<NSManagedObject> = NSFetchRequest(entityName: "User")
         fetchRequest.predicate = NSPredicate(format: "username = %@", email)
         
         do {
-            if let fetchedUser = try context.fetch(fetchRequest).first {
-                // Hash the entered password using SHA256
-                if let passwordData = password.data(using: .utf8) {
-                    let hashed = SHA256.hash(data: passwordData)
-                    let hashedPasswordData = Data(hashed)
-                    
-                    // Retrieve hashed password from fetched user (assuming 'hashedPassword' is the attribute name)
-                    if let userHashedPassword = fetchedUser.value(forKey: "hashedPassword") as? Data {
-                        // Compare hashed passwords
-                        if userHashedPassword == hashedPasswordData {
-                            completion(.success) // Passwords match, login successful
-                        } else {
-                            completion(.passwordMismatch) // Passwords do not match
-                        }
-                    } else {
-                        completion(.noHashPasswordAttribute) // User does not have hashedPassword attribute
-                    }
-                } else {
-                    completion(.passwordHashFail) // Failed to hash entered password
-                }
-            } else {
-                completion(.userNotFound) // User not found
-            }
+            return try context.fetch(fetchRequest).first
         } catch {
             print("Error fetching user: \(error)")
-            completion(.error(error.localizedDescription)) // Error fetching user
+            return nil
         }
+    }
+    
+    // Function to hash the provided password
+    func hashPassword(_ password: String) -> Data? {
+        if let passwordData = password.data(using: .utf8) {
+            let hashed = SHA256.hash(data: passwordData)
+            return Data(hashed)
+        }
+        return nil
     }
     
 }

@@ -61,10 +61,4 @@ final class ApiManager {
             }
         }.resume()
     }
-
-    
-
-    
-
-    
 }

@@ -43,7 +43,8 @@ final class HomePageViewModel: HomePageViewModelProtocol {
     }
     
 }
-extension HomePageViewModel {
+
+private extension HomePageViewModel {
     
     func fetchHomePageListResponse(searchText: String?) {
         eventHandler?(.loading)

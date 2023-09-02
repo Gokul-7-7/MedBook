@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		551C90722AA240DA00610878 /* DetailPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C90712AA240DA00610878 /* DetailPageViewModel.swift */; };
+		551C90742AA2E5CA00610878 /* BookDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C90732AA2E5CA00610878 /* BookDetailResponse.swift */; };
+		551C90772AA30AC000610878 /* BookMarkDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C90762AA30AC000610878 /* BookMarkDataManager.swift */; };
+		551C907A2AA30DDC00610878 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 551C90792AA30DDC00610878 /* Kingfisher */; };
+		551C907E2AA31F6100610878 /* BookMarkPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C907D2AA31F6100610878 /* BookMarkPageViewController.swift */; };
+		551C90812AA323DF00610878 /* BookMarkPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C90802AA323DF00610878 /* BookMarkPageViewModel.swift */; };
 		554D220B2AA1B78800FBC641 /* HomePageListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D220A2AA1B78800FBC641 /* HomePageListResponse.swift */; };
 		554D220D2AA1B7C100FBC641 /* Doc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D220C2AA1B7C100FBC641 /* Doc.swift */; };
 		554D221A2AA1BFE600FBC641 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D22192AA1BFE600FBC641 /* UIImageView + Extension.swift */; };
 		554D22202AA1C55600FBC641 /* BookListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D221E2AA1C55600FBC641 /* BookListTableViewCell.swift */; };
 		554D22212AA1C55600FBC641 /* BookListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 554D221F2AA1C55600FBC641 /* BookListTableViewCell.xib */; };
-		554D22252AA1E6D600FBC641 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D22242AA1E6D600FBC641 /* BookDetailViewController.swift */; };
+		554D22252AA1E6D600FBC641 /* DetailPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D22242AA1E6D600FBC641 /* DetailPageViewController.swift */; };
 		554D22272AA1F00000FBC641 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D22262AA1F00000FBC641 /* HomeCoordinator.swift */; };
 		554D222A2AA1F01C00FBC641 /* HomeNW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D22292AA1F01C00FBC641 /* HomeNW.swift */; };
 		554D222C2AA1F02500FBC641 /* HomeDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554D222B2AA1F02500FBC641 /* HomeDB.swift */; };
@@ -60,12 +65,16 @@
 
 /* Begin PBXFileReference section */
 		551C90712AA240DA00610878 /* DetailPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageViewModel.swift; sourceTree = "<group>"; };
+		551C90732AA2E5CA00610878 /* BookDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailResponse.swift; sourceTree = "<group>"; };
+		551C90762AA30AC000610878 /* BookMarkDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkDataManager.swift; sourceTree = "<group>"; };
+		551C907D2AA31F6100610878 /* BookMarkPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkPageViewController.swift; sourceTree = "<group>"; };
+		551C90802AA323DF00610878 /* BookMarkPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkPageViewModel.swift; sourceTree = "<group>"; };
 		554D220A2AA1B78800FBC641 /* HomePageListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageListResponse.swift; sourceTree = "<group>"; };
 		554D220C2AA1B7C100FBC641 /* Doc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doc.swift; sourceTree = "<group>"; };
 		554D22192AA1BFE600FBC641 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 		554D221E2AA1C55600FBC641 /* BookListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListTableViewCell.swift; sourceTree = "<group>"; };
 		554D221F2AA1C55600FBC641 /* BookListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookListTableViewCell.xib; sourceTree = "<group>"; };
-		554D22242AA1E6D600FBC641 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		554D22242AA1E6D600FBC641 /* DetailPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPageViewController.swift; sourceTree = "<group>"; };
 		554D22262AA1F00000FBC641 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		554D22292AA1F01C00FBC641 /* HomeNW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNW.swift; sourceTree = "<group>"; };
 		554D222B2AA1F02500FBC641 /* HomeDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDB.swift; sourceTree = "<group>"; };
@@ -117,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				551C907A2AA30DDC00610878 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +136,7 @@
 		551C906F2AA240B300610878 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				551C90732AA2E5CA00610878 /* BookDetailResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -134,6 +145,39 @@
 			isa = PBXGroup;
 			children = (
 				551C90712AA240DA00610878 /* DetailPageViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		551C90752AA30A9F00610878 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				551C90762AA30AC000610878 /* BookMarkDataManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		551C907B2AA31F3600610878 /* BookMarkPage */ = {
+			isa = PBXGroup;
+			children = (
+				551C907C2AA31F4C00610878 /* View */,
+				551C907F2AA323D100610878 /* ViewModel */,
+			);
+			path = BookMarkPage;
+			sourceTree = "<group>";
+		};
+		551C907C2AA31F4C00610878 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				551C907D2AA31F6100610878 /* BookMarkPageViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		551C907F2AA323D100610878 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				551C90802AA323DF00610878 /* BookMarkPageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -167,6 +211,7 @@
 		554D22222AA1E6B500FBC641 /* BookDetailPage */ = {
 			isa = PBXGroup;
 			children = (
+				551C90752AA30A9F00610878 /* Services */,
 				551C906F2AA240B300610878 /* Model */,
 				554D22232AA1E6C600FBC641 /* Views */,
 				551C90702AA240BA00610878 /* ViewModel */,
@@ -177,7 +222,7 @@
 		554D22232AA1E6C600FBC641 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				554D22242AA1E6D600FBC641 /* BookDetailViewController.swift */,
+				554D22242AA1E6D600FBC641 /* DetailPageViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -250,6 +295,7 @@
 				55850C192A8D415800A725D2 /* LoginPage */,
 				55850C1A2A8D416800A725D2 /* HomePage */,
 				554D22222AA1E6B500FBC641 /* BookDetailPage */,
+				551C907B2AA31F3600610878 /* BookMarkPage */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -460,6 +506,9 @@
 			dependencies = (
 			);
 			name = MedBook;
+			packageProductDependencies = (
+				551C90792AA30DDC00610878 /* Kingfisher */,
+			);
 			productName = MedBook;
 			productReference = 55850BED2A8CF61600A725D2 /* MedBook.app */;
 			productType = "com.apple.product-type.application";
@@ -489,6 +538,7 @@
 			);
 			mainGroup = 55850BE42A8CF61600A725D2;
 			packageReferences = (
+				551C90782AA30DDC00610878 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 55850BEE2A8CF61600A725D2 /* Products */;
 			projectDirPath = "";
@@ -534,12 +584,14 @@
 				554D22302AA2199900FBC641 /* HomePageViewModel.swift in Sources */,
 				554D221A2AA1BFE600FBC641 /* UIImageView + Extension.swift in Sources */,
 				55850C202A8D453900A725D2 /* LandingPageViewController.swift in Sources */,
+				551C90812AA323DF00610878 /* BookMarkPageViewModel.swift in Sources */,
 				55850C3A2A8DF83D00A725D2 /* ApiResponse.swift in Sources */,
 				55850C412A8DF95F00A725D2 /* Event.swift in Sources */,
 				554D222A2AA1F01C00FBC641 /* HomeNW.swift in Sources */,
 				55850C5D2A8E1D3B00A725D2 /* LoginPageViewModel.swift in Sources */,
 				55850C7B2A8E71E100A725D2 /* UITextField + Extension.swift in Sources */,
 				55850BFB2A8CF61600A725D2 /* MedBook.xcdatamodeld in Sources */,
+				551C90772AA30AC000610878 /* BookMarkDataManager.swift in Sources */,
 				55850C462A8DFE6800A725D2 /* SignupPageViewController+PickerDataSource.swift in Sources */,
 				55850C3E2A8DF8F500A725D2 /* SignupPageViewModelImpl.swift in Sources */,
 				55850C3C2A8DF86400A725D2 /* Country.swift in Sources */,
@@ -547,10 +599,12 @@
 				55850C502A8E102C00A725D2 /* String + Extension.swift in Sources */,
 				55850C632A8E280600A725D2 /* UIViewController + Extension.swift in Sources */,
 				55850C252A8D477500A725D2 /* BackgroundView.swift in Sources */,
+				551C907E2AA31F6100610878 /* BookMarkPageViewController.swift in Sources */,
 				554D220D2AA1B7C100FBC641 /* Doc.swift in Sources */,
 				554D22202AA1C55600FBC641 /* BookListTableViewCell.swift in Sources */,
 				55850C382A8DF7AD00A725D2 /* ApiManager.swift in Sources */,
 				55850C6E2A8E2F5A00A725D2 /* CheckBoxView.swift in Sources */,
+				551C90742AA2E5CA00610878 /* BookDetailResponse.swift in Sources */,
 				55850C322A8DC25100A725D2 /* SignupPageViewController.swift in Sources */,
 				55850C792A8E714B00A725D2 /* LoginPageViewController+TextFieldDelegate.swift in Sources */,
 				55850C5B2A8E1D2E00A725D2 /* LoginPageViewController.swift in Sources */,
@@ -559,7 +613,7 @@
 				55850BF12A8CF61600A725D2 /* AppDelegate.swift in Sources */,
 				554D220B2AA1B78800FBC641 /* HomePageListResponse.swift in Sources */,
 				55850C342A8DC2AC00A725D2 /* SignupPageViews.swift in Sources */,
-				554D22252AA1E6D600FBC641 /* BookDetailViewController.swift in Sources */,
+				554D22252AA1E6D600FBC641 /* DetailPageViewController.swift in Sources */,
 				55850BF32A8CF61600A725D2 /* SceneDelegate.swift in Sources */,
 				55850C682A8E2A6800A725D2 /* HomePageViewController.swift in Sources */,
 				55850C7E2A8E7EEA00A725D2 /* AuthTokenManager.swift in Sources */,
@@ -770,6 +824,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		551C90782AA30DDC00610878 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		551C90792AA30DDC00610878 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 551C90782AA30DDC00610878 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		55850BF92A8CF61600A725D2 /* MedBook.xcdatamodeld */ = {

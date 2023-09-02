@@ -12,6 +12,8 @@ struct Assets {
     struct API {
         static let countryApi = "https://api.first.org/data/v1/countries"
         static let listApi = "https://openlibrary.org/search.json"
+        static let detailApi = "https://openlibrary.org"
+        //<KEY>.json"
     }
     
     struct Font {

@@ -9,10 +9,14 @@ import Foundation
 
 struct Doc: Codable {
     var key: String?
-    var seed: [String]?
     var title, titleSort: String?
     var ratings_average: Double?
     var ratings_count: Int?
     var author_name: [String]?
     var cover_i: Int?
+    
+    var authorName: String?
+    mutating func getAuthorName() {
+        authorName = author_name?.first
+    }
 }

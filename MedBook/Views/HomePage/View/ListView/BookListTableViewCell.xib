@@ -93,6 +93,18 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eba-ph-nYc">
+                                <rect key="frame" x="258" y="33" width="35" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="HYz-cd-ZO9"/>
+                                    <constraint firstAttribute="width" constant="35" id="ia3-0I-adM"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="bookmark.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="bookMarkButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="tjI-Fc-QBL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <constraints>
@@ -100,15 +112,18 @@
                             <constraint firstItem="4W1-Gp-3ry" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qBz-Nn-5hZ" secondAttribute="trailing" constant="8" id="6Ew-oP-VTt"/>
                             <constraint firstAttribute="trailing" secondItem="4W1-Gp-3ry" secondAttribute="trailing" constant="16" id="8oa-PH-kKn"/>
                             <constraint firstAttribute="bottom" secondItem="fWF-M1-RVo" secondAttribute="bottom" constant="8" id="8za-qu-rbX"/>
+                            <constraint firstAttribute="trailing" secondItem="Eba-ph-nYc" secondAttribute="trailing" constant="24" id="Jv5-dk-MlS"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="qBz-Nn-5hZ" secondAttribute="bottom" constant="8" id="QMP-hX-04g"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="4W1-Gp-3ry" secondAttribute="bottom" constant="8" id="T3e-JY-FP8"/>
                             <constraint firstAttribute="trailing" secondItem="38r-Wl-9R8" secondAttribute="trailing" constant="8" id="Utp-ef-5g8"/>
+                            <constraint firstItem="Eba-ph-nYc" firstAttribute="top" secondItem="38r-Wl-9R8" secondAttribute="bottom" constant="8" id="WAh-0i-N9e"/>
                             <constraint firstItem="38r-Wl-9R8" firstAttribute="leading" secondItem="fWF-M1-RVo" secondAttribute="trailing" constant="8" id="aX3-5F-6Lk"/>
                             <constraint firstItem="qBz-Nn-5hZ" firstAttribute="top" secondItem="38r-Wl-9R8" secondAttribute="bottom" constant="8" id="fVd-2d-6fX"/>
                             <constraint firstItem="4W1-Gp-3ry" firstAttribute="top" secondItem="38r-Wl-9R8" secondAttribute="bottom" constant="8" id="hRr-6h-Xma"/>
                             <constraint firstItem="qBz-Nn-5hZ" firstAttribute="leading" secondItem="fWF-M1-RVo" secondAttribute="trailing" constant="8" id="iRl-Rp-sfM"/>
                             <constraint firstItem="38r-Wl-9R8" firstAttribute="top" secondItem="mku-zS-CSm" secondAttribute="top" constant="8" id="vEP-Gi-dNp"/>
                             <constraint firstItem="fWF-M1-RVo" firstAttribute="leading" secondItem="mku-zS-CSm" secondAttribute="leading" constant="8" id="xNU-3e-UeS"/>
+                            <constraint firstItem="Eba-ph-nYc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qBz-Nn-5hZ" secondAttribute="trailing" constant="8" id="yVX-Tn-Uvz"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -123,6 +138,7 @@
             <connections>
                 <outlet property="authorLabel" destination="qBz-Nn-5hZ" id="HM6-1Y-Yfo"/>
                 <outlet property="bookImageView" destination="8UO-gT-HCV" id="B15-vu-Otd"/>
+                <outlet property="bookMarkButton" destination="Eba-ph-nYc" id="EMM-ep-C1B"/>
                 <outlet property="countLabel" destination="huB-l2-8hW" id="uh7-tT-fRO"/>
                 <outlet property="countStackView" destination="c16-3Q-YbK" id="DhI-qa-MR6"/>
                 <outlet property="imageViewContainer" destination="fWF-M1-RVo" id="VNW-Tm-VgH"/>
@@ -136,6 +152,7 @@
     </objects>
     <resources>
         <image name="book.fill" catalog="system" width="128" height="95"/>
+        <image name="bookmark.fill" catalog="system" width="110" height="128"/>
         <image name="square.split.bottomrightquarter.fill" catalog="system" width="128" height="114"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="BackgroundColorTwo">

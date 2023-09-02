@@ -3,4 +3,150 @@
    uuid = "82BC8537-7181-49BF-BBF3-4C20243F870A"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B8C54264-9599-48D3-A0F8-42D09A93BC79"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MedBook/Views/BookDetailPage/Services/DetailPageDB.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "removeDocFromCoreData(docKey:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E4BE2ED8-2C75-4BE9-9665-41840F9BD1CE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MedBook/Views/BookDetailPage/Services/DetailPageDB.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "removeDocFromCoreData(docKey:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "699D4D90-5972-4564-896C-4F4ABE611184"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MedBook/Views/BookDetailPage/Services/DetailPageDB.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "removeDocFromCoreData(docKey:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "01E02E07-3686-4ECC-BA33-F4DD8A71AF0E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MedBook/Views/BookDetailPage/ViewModel/DetailPageViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "isBookmarkPressed()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "398E4475-E8F5-4BCC-BB55-8E23907059C8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MedBook/Views/BookDetailPage/Services/BookMarkDataManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "saveDocToCoreData(doc:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7B365F48-A49A-4B1F-8F6F-92E64C7C544C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MedBook/Views/HomePage/View/ListView/BookListTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "setupBookMarkViewWith(tag:isBookMarked:data:delegate:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7B365F48-A49A-4B1F-8F6F-92E64C7C544C - 1d7731a3291a469f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MedBook.BookListTableViewCell.setupBookMarkViewWith(tag: Swift.Int, isBookMarked: Swift.Bool, data: Swift.Optional&lt;MedBook.Doc&gt;, delegate: MedBook.BookListTableViewCellDelegate) -&gt; ()"
+                  moduleName = "MedBook"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gokul/Documents/MedBook/MedBook/Views/HomePage/View/ListView/BookListTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "1672">
+               </Location>
+               <Location
+                  uuid = "7B365F48-A49A-4B1F-8F6F-92E64C7C544C - 1d7731a3291a469f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MedBook.BookListTableViewCell.setupBookMarkViewWith(tag: Swift.Int, isBookMarked: Swift.Bool, data: Swift.Optional&lt;MedBook.Doc&gt;, delegate: MedBook.BookListTableViewCellDelegate) -&gt; ()"
+                  moduleName = "MedBook"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gokul/Documents/MedBook/MedBook/Views/HomePage/View/ListView/BookListTableViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "1848">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D85C6799-D19C-4123-A8FD-AE2C50C3F03E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MedBook/Views/BookMarkPage/ViewModel/BookMarkPageViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "fetchListResponse()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
