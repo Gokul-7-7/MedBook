@@ -83,8 +83,6 @@ class BookDetailViewController: UIViewController {
         view.backgroundColor = .systemBackground
         configuration()
     }
-    
-    
 }
 
 // MARK: - ViewModel handler methods
@@ -137,6 +135,20 @@ private extension BookDetailViewController {
     }
 }
 
+// MARK: - View model observer methods
+extension BookDetailViewController: DetailPageViewModelObserver {
+    
+    func bookMark(isBookMarked: Bool) {
+        self.isBookMarked = isBookMarked
+        print(isBookMarked)
+    }
+    
+    func bookMarkStatus(result: Bool) {
+        if !result {
+            showToast(message: "Failure!")
+        }
+    }
+}
 
 // MARK: - UI setup
 private extension BookDetailViewController {
@@ -211,16 +223,4 @@ private extension BookDetailViewController {
     }
 }
 
-extension BookDetailViewController: DetailPageViewModelObserver {
-    
-    func bookMark(isBookMarked: Bool) {
-        self.isBookMarked = isBookMarked
-        print(isBookMarked)
-    }
-    
-    func bookMarkStatus(result: Bool) {
-        if !result {
-            showToast(message: "Failure!")
-        }
-    }    
-}
+

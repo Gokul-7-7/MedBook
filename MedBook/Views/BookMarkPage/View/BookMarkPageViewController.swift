@@ -38,7 +38,6 @@ class BookMarkPageViewController: UITableViewController {
         cell.selectionStyle = .none
         return cell
     }
-    
 }
 
 private extension BookMarkPageViewController {
@@ -88,7 +87,8 @@ private extension BookMarkPageViewController {
         }
     }
 }
-// MARK: - View model delegate
+
+// MARK: - ViewModel observer methods
 extension BookMarkPageViewController: BookMarkPageViewModelObserver {
     func dataLoaded(list: [Doc]?) {
         self.list = list
@@ -98,7 +98,8 @@ extension BookMarkPageViewController: BookMarkPageViewModelObserver {
         tableView.reloadData()
     }
 }
-// MARK: - Cell delegate methods
+
+// MARK: - Custom cell Delegate methods
 extension BookMarkPageViewController: BookListTableViewCellDelegate {
     func bookMarkButtonPressed(key: String) {
         viewModel.removeAt(key: key)

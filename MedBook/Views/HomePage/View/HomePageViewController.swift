@@ -82,7 +82,9 @@ final class HomePageViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Title", for: .normal)
         button.titleLabel?.font = UIFont(name: Assets.Font.degularRegular, size: 18)
-        button.setTitleColor(.black, for: .normal)
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
+        button.setTitleColor(.label, for: .normal)
         return button
     }()
     
@@ -90,7 +92,9 @@ final class HomePageViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Average", for: .normal)
         button.titleLabel?.font = UIFont(name: Assets.Font.degularRegular, size: 18)
-        button.setTitleColor(.black, for: .normal)
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
+        button.setTitleColor(.label, for: .normal)
         return button
     }()
     
@@ -98,7 +102,9 @@ final class HomePageViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Hits", for: .normal)
         button.titleLabel?.font = UIFont(name: Assets.Font.degularRegular, size: 18)
-        button.setTitleColor(.black, for: .normal)
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
+        button.setTitleColor(.label, for: .normal)
         return button
     }()
     
@@ -144,16 +150,40 @@ final class HomePageViewController: UIViewController {
     
     @objc func titleSortButtonTapped(_ sender: UIButton) {
         viewModel.currentSortOption = .title
+        sender.isSelected = true
+        if viewModel.currentSortOption == .title {
+            titleSortButton.backgroundColor = .systemGray
+            averageSortButton.backgroundColor = .clear
+            hitsSortButton.backgroundColor = .clear
+        } else {
+            sender.backgroundColor = .clear
+        }
         viewModel.sortDocs()
     }
     
     @objc func averageSortButtonTapped(_ sender: UIButton) {
         viewModel.currentSortOption = .ratingsAverage
+        sender.isSelected = true
+        if viewModel.currentSortOption == .ratingsAverage {
+            titleSortButton.backgroundColor = .clear
+            averageSortButton.backgroundColor = .systemGray
+            hitsSortButton.backgroundColor = .clear
+        } else {
+            sender.backgroundColor = .clear
+        }
         viewModel.sortDocs()
     }
     
     @objc func hitsSortButtonTapped(_ sender: UIButton) {
         viewModel.currentSortOption = .ratingsCount
+        sender.isSelected = true
+        if viewModel.currentSortOption == .ratingsCount {
+            titleSortButton.backgroundColor = .clear
+            averageSortButton.backgroundColor = .clear
+            hitsSortButton.backgroundColor = .systemGray
+        } else {
+            sender.backgroundColor = .clear
+        }
         viewModel.sortDocs()
     }
     
