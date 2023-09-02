@@ -46,7 +46,7 @@ final class HomePageViewController: UIViewController {
     
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
-        searchBar.placeholder = "Search for books"
+        searchBar.placeholder = "Search for books (eg: Harry Potter)"
         searchBar.backgroundImage = UIImage()
         searchBar.delegate = self
         return searchBar
