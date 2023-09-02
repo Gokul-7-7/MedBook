@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Reachability
+import UIKit
 
 enum DataError: Error {
     case invalidData
@@ -24,14 +26,12 @@ final class ApiManager {
     enum HTTPMethod: String {
         case get = "GET"
         case post = "POST"
-        // Add more HTTP methods as needed
     }
-
+    
     func fetch<T: Decodable>(url: URL, method: HTTPMethod = .get, parameters: [String: Any]? = nil, completion: @escaping (Result<T, DataError>) -> ()) {
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
-                
-        // Add parameters to the request if provided
+        
         if let parameters = parameters {
             do {
                 let jsonData = try JSONSerialization.data(withJSONObject: parameters)

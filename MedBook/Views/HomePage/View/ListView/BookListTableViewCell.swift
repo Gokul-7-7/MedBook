@@ -27,10 +27,20 @@ class BookListTableViewCell: UITableViewCell {
     var data: Doc?
     var isBookMarked: Bool = false
     weak var delegate: BookListTableViewCellDelegate?
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         configureView()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        ratingLabel.text = ""
+        authorLabel.text = ""
+        bookImageView.image = nil
+        titleLabel.text = ""
+        ratingStackView.isHidden = false
+        countStackView.isHidden = false
     }
     
     func configureView() {
@@ -81,16 +91,6 @@ class BookListTableViewCell: UITableViewCell {
         }
         guard let coverI = data.cover_i, let url = URL(string: "https://covers.openlibrary.org/b/id/\(coverI)-M.jpg") else { return }
         bookImageView.kf.setImage(with: url)
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        ratingLabel.text = ""
-        authorLabel.text = ""
-        bookImageView.image = nil
-        titleLabel.text = ""
-        ratingStackView.isHidden = false
-        countStackView.isHidden = false
     }
     
     @IBAction func bookMarkButtonPressed(_ sender: UIButton) {

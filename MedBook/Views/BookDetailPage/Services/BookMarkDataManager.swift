@@ -13,7 +13,7 @@ enum BookMarkEvent: Error {
     case failure(Error)
 }
 
-class BookMarkDataManager {
+final class BookMarkDataManager {
     static let shared = BookMarkDataManager()
     
     // Property to store the managed context globally
@@ -67,7 +67,7 @@ class BookMarkDataManager {
     // Function to remove a Doc instance from Core Data
     func removeDocFromCoreData(docKey: String, completion: @escaping (Bool) -> Void) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            completion(false) // Call the completion handler with a failure result
+            completion(false) 
             return
         }
         
@@ -82,13 +82,13 @@ class BookMarkDataManager {
                 managedContext.delete(docEntity)
                 // Save the managed context after deletion
                 try managedContext.save()
-                completion(true) // Call the completion handler with a success result
+                completion(true)
             } else {
-                completion(false) // Call the completion handler with a failure result
+                completion(false)
             }
         } catch let error as NSError {
             print("Error removing from Core Data: \(error.localizedDescription)")
-            completion(false) // Call the completion handler with a failure result
+            completion(false)
         }
     }
     

@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class BookDetailViewController: UIViewController {
+final class BookDetailViewController: UIViewController {
     
     private lazy var headerImageView: UIImageView = {
         let imageView = UIImageView()

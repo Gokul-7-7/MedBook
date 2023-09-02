@@ -14,9 +14,4 @@ struct Doc: Codable {
     var ratings_count: Int?
     var author_name: [String]?
     var cover_i: Int?
-    
-    var authorName: String?
-    mutating func getAuthorName() {
-        authorName = author_name?.first
-    }
 }

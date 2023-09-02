@@ -38,4 +38,17 @@ extension UIViewController {
             })
         }
     }
+    
+    var topMostViewController: UIViewController {
+        if let presentedViewController = presentedViewController {
+            return presentedViewController.topMostViewController
+        }
+        if let navigation = self as? UINavigationController {
+            return navigation.visibleViewController?.topMostViewController ?? navigation
+        }
+        if let tabBar = self as? UITabBarController {
+            return tabBar.selectedViewController?.topMostViewController ?? tabBar
+        }
+        return self
+    }
 }

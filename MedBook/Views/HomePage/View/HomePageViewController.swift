@@ -187,7 +187,6 @@ final class HomePageViewController: UIViewController {
         viewModel.sortDocs()
     }
     
-    // MARK: - Methods
     private func replaceRootViewController() {
         // Create a new instance of the view controller you want to set as root
         let newRootViewController: UIViewController = UINavigationController(rootViewController: LandingPageViewController())
@@ -229,7 +228,7 @@ private extension HomePageViewController {
     }
     
     
-    // MARK: - Constraints and view setup methods
+// MARK: - Constraints and view setup methods
     func setupConstraints() {
         setupActivityIndicatorConstraints()
         setupHeaderConstraints()

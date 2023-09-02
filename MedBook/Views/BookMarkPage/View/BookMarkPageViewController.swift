@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BookMarkPageViewController: UITableViewController {
+final class BookMarkPageViewController: UITableViewController {
     
     var viewModel: BookMarkPageViewModel
     var list: [Doc]?

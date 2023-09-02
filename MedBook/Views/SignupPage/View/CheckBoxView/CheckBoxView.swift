@@ -32,20 +32,16 @@ final class CheckboxStackView: UIStackView {
     }
     
     private func commonInit(labelText: String) {
-        // Configure checkbox
         checkbox.setImage(UIImage(systemName: "checkmark.square")?.withTintColor(.black, renderingMode: .alwaysTemplate), for: .selected)
         checkbox.setImage(UIImage(systemName: "square")?.withRenderingMode(.alwaysTemplate).withTintColor(.black), for: .normal)
         
-        // Configure text label
         textLabel.font = UIFont(name: Assets.Font.degularSemibold, size: 18)
         textLabel.numberOfLines = 0
         textLabel.text = labelText
         
-        // Add views to stack view
         addArrangedSubview(checkbox)
         addArrangedSubview(textLabel)
         
-        // Stack view configuration
         axis = .horizontal
         spacing = 10
         alignment = .center
