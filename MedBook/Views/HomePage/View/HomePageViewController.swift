@@ -217,7 +217,7 @@ private extension HomePageViewController {
     }
     
     
-// MARK: - Constraints and view setup methods
+    // MARK: - Constraints and view setup methods
     func setupConstraints() {
         setupActivityIndicatorConstraints()
         setupHeaderConstraints()

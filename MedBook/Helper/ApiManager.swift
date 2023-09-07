@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Reachability
 import UIKit
 
 enum DataError: Error {
